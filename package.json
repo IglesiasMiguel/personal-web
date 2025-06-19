@@ -20,7 +20,8 @@
     "astro": "astro",
     "stg": "cross-env NODE_ENV=staging astro build --mode staging",
     "prod": "cross-env NODE_ENV=production astro build --mode production",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "eslint . --ext .js,.ts,.tsx,.astro"
   },
   "lint-staged": {
     "*.{ts,tsx,astro,css,js,json,md}": [
