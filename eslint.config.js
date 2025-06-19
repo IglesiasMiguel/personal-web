@@ -33,4 +33,23 @@ export default defineConfig([
       },
     },
   },
+  {
+    files: ['astro.config.mjs', '*.config.js', '*.config.mjs'],
+    languageOptions: {
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        module: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        require: 'readonly',
+        exports: 'readonly',
+      },
+      sourceType: 'module',
+      ecmaVersion: 2022,
+    },
+    rules: {
+      // specific rules for config files
+    },
+  },
 ]);

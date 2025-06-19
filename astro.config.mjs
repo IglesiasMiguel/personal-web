@@ -113,7 +113,7 @@ export default defineConfig({
       assetsInlineLimit: 0,
       rollupOptions: {
         output: {
-          entryFileNames: (entryInfo) => {
+          entryFileNames: () => {
             return `assets/js/[name].js`;
           },
           assetFileNames: (assetInfo) => {
