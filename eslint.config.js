@@ -7,7 +7,7 @@ import astroParser from 'astro-eslint-parser';
 
 export default defineConfig([
   {
-    ignores: ['node_modules/**', 'dist/**', 'public/**', '**/*.lock', '**/*.json'],
+    ignores: ['node_modules/**', 'dist/**', 'public/**', '**/*.lock', '.astro/**', '**/*.json'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
