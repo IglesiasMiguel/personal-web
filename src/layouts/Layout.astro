@@ -1,19 +1,64 @@
 ---
 // src/layouts/Layout.astro
-import Header from '@/components/Header.astro';
 import Head from '@/components/Head.astro';
 import '@/styles/global.css';
 import type { PageMeta } from '@/lib/constants';
+import {
+  FaGithub as Github,
+  FaLinkedin as Linkedin,
+  FaInstagram as Instagram,
+} from 'react-icons/fa';
+import CursorEffect from '@/components/CursorEffect';
 
 const props = Astro.props as PageMeta;
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang="en">
   <Head {...props} />
-  <body>
-    <Header />
-    <slot />
+  <body class="bg-[#0a192f] text-slate-200 min-h-screen">
+    <div class="flex flex-col md:flex-row min-h-screen">
+      <!-- Aside para móvil: visible solo en móvil, menú oculto -->
+      <aside
+        class="flex md:hidden flex-col items-center gap-2 px-6 py-6 border-b border-slate-800 w-full"
+      >
+        <h1 class="text-2xl font-bold">Miguel Iglesias</h1>
+        <p class="text-base">Computer Engineer</p>
+        <div class="flex gap-4 mt-2">
+          <a href="#" aria-label="GitHub"><Github className="w-5 h-5" /></a>
+          <a href="#" aria-label="LinkedIn"><Linkedin className="w-5 h-5" /></a>
+          <a href="#" aria-label="Instagram"><Instagram className="w-5 h-5" /></a>
+        </div>
+      </aside>
+      <!-- Aside para desktop: menú lateral -->
+      <aside
+        class="hidden md:flex flex-col justify-between w-72 px-8 py-12 sticky top-0 h-screen border-r border-slate-800"
+      >
+        <div>
+          <h1 class="text-3xl font-bold mb-2">Miguel Iglesias</h1>
+          <p class="text-lg mb-8">Computer Engineer</p>
+          <nav class="flex flex-col gap-4">
+            <a href="#about" class="text-slate-400 hover:text-accent transition-colors">About</a>
+            <a href="#experience" class="text-slate-400 hover:text-accent transition-colors"
+              >Experience</a
+            >
+            <a href="#projects" class="text-slate-400 hover:text-accent transition-colors"
+              >Projects</a
+            >
+          </nav>
+        </div>
+        <div class="flex gap-4 mt-8">
+          <a href="#" aria-label="GitHub"><Github className="w-5 h-5" /></a>
+          <a href="#" aria-label="LinkedIn"><Linkedin className="w-5 h-5" /></a>
+          <a href="#" aria-label="Instagram"><Instagram className="w-5 h-5" /></a>
+        </div>
+      </aside>
+      <!-- Main content -->
+      <main class="flex-1 overflow-y-auto px-6 md:px-16 py-12 relative">
+        <CursorEffect client:load />
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
 
