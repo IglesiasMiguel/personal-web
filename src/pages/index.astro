@@ -1,17 +1,28 @@
 ---
 // src/pages/index.astro
-import Welcome from '@/components/Welcome.astro';
 import Layout from '@/layouts/Layout.astro';
 import type { PageMeta } from '@/lib/constants';
 
 const meta: PageMeta = {
-  title: 'Astro + TailwindCSS + shadcn/ui Template',
-  description:
-    'A comprehensive template equipped with features necessary for modern web development',
+  title: 'Mi Portfolio',
+  description: 'Portfolio personal inspirado en Brittany Chiang',
   ogType: 'website',
 };
 ---
 
 <Layout {...meta}>
-  <Welcome />
+  <section id="about" class="max-w-3xl mx-auto py-20">
+    <h2 class="text-2xl font-bold mb-4">About</h2>
+    <p>
+      Soy un desarrollador apasionado por crear experiencias web accesibles y de alto rendimiento...
+    </p>
+  </section>
+  <section id="experience" class="max-w-3xl mx-auto py-20">
+    <h2 class="text-2xl font-bold mb-4">Experience</h2>
+    <p>Aquí irá tu experiencia profesional, puestos, empresas y logros destacados.</p>
+  </section>
+  <section id="projects" class="max-w-3xl mx-auto py-20">
+    <h2 class="text-2xl font-bold mb-4">Projects</h2>
+    <p>Aquí puedes mostrar tus proyectos más relevantes, con enlaces y descripciones.</p>
+  </section>
 </Layout>
