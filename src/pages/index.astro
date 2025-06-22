@@ -3,26 +3,29 @@
 import Layout from '@/layouts/Layout.astro';
 import type { PageMeta } from '@/lib/constants';
 
-const meta: PageMeta = {
-  title: 'Mi Portfolio',
-  description: 'Portfolio personal inspirado en Brittany Chiang',
-  ogType: 'website',
-};
+const meta: PageMeta = {};
 ---
 
 <Layout {...meta}>
   <section id="about" class="max-w-3xl mx-auto py-20">
-    <h2 class="text-2xl font-bold mb-4">About</h2>
     <p>
       Soy un desarrollador apasionado por crear experiencias web accesibles y de alto rendimiento...
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat porro possimus culpa sunt
+      accusamus eos beatae facere quisquam! Doloribus repellendus ratione sit, exercitationem fugiat
+      aut maxime consectetur cum ea soluta. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Alias fugiat, illo sequi itaque cupiditate maxime eius modi id blanditiis temporibus?
+      Molestias sequi consequatur, delectus in id quo eum doloribus vero. lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+      voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
     </p>
   </section>
   <section id="experience" class="max-w-3xl mx-auto py-20">
-    <h2 class="text-2xl font-bold mb-4">Experience</h2>
+    <h2 class="text-2xl font-bold mb-4 text-primary">Experience</h2>
     <p>Aquí irá tu experiencia profesional, puestos, empresas y logros destacados.</p>
   </section>
   <section id="projects" class="max-w-3xl mx-auto py-20">
-    <h2 class="text-2xl font-bold mb-4">Projects</h2>
+    <h2 class="text-2xl font-bold mb-4 text-primary">Projects</h2>
     <p>Aquí puedes mostrar tus proyectos más relevantes, con enlaces y descripciones.</p>
   </section>
 </Layout>

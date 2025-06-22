@@ -1,10 +1,15 @@
 import { useEffect, useRef } from 'react';
 
-const CURSOR_RADIUS = 380; // px
+const CURSOR_RADIUS = 600;
 
 export default function CursorEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouse = useRef({ x: 0, y: 0 });
+
+  // Function to get the primary color with an alpha value
+  function getPrimaryColor(alpha = 0.1) {
+    return `rgba(34, 211, 238, ${alpha})`;
+  }
 
   // Updates size of the canvas
   useEffect(() => {
@@ -33,6 +38,10 @@ export default function CursorEffect() {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const colorCenter = getPrimaryColor(0.1);
+      const colorMid = getPrimaryColor(0.05);
+
       const gradient = ctx.createRadialGradient(
         mouse.current.x,
         mouse.current.y,
@@ -41,8 +50,9 @@ export default function CursorEffect() {
         mouse.current.y,
         CURSOR_RADIUS
       );
-      gradient.addColorStop(0, 'rgba(80, 120, 255, 0.18)');
-      gradient.addColorStop(1, 'rgba(80, 120, 255, 0)');
+      gradient.addColorStop(0, colorCenter);
+      gradient.addColorStop(0.5, colorMid);
+      gradient.addColorStop(1, 'rgba(34, 211, 238, 0)');
       ctx.fillStyle = gradient;
       ctx.fillRect(
         mouse.current.x - CURSOR_RADIUS,

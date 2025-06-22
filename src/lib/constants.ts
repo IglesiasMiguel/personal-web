@@ -68,13 +68,13 @@ export const getCurrentAssetsUrl = () => (ASSETS_URL.STATUS ? ASSETS_URL[getCurr
 
 // Basic site info (set dynamically according to environment)
 export const SITE_CONFIG = {
-  name: 'This is the site name',
-  title: 'This is the title',
+  name: 'Miguel Iglesias',
+  title: 'Portfolio',
   description: 'This is the description',
   url: getCurrentSiteUrl(),
-  author: 'Your Name',
-  locale: 'ja_JP',
-  defaultLocale: 'ja',
+  author: 'Miguel Iglesias',
+  locale: 've_ES',
+  defaultLocale: 've',
 } as const;
 
 // Default SEO settings
