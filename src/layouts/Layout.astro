@@ -9,6 +9,7 @@ import {
   FaInstagram as Instagram,
 } from 'react-icons/fa';
 import CursorEffect from '@/components/CursorEffect';
+import ScrollSpy from '@/components/ScrollSpy';
 
 const props = Astro.props as PageMeta;
 ---
@@ -37,17 +38,7 @@ const props = Astro.props as PageMeta;
         <div>
           <h1 class="text-3xl font-bold mb-2">Miguel Iglesias</h1>
           <p class="text-lg mb-8">Informatics Engineer</p>
-          <nav class="flex flex-col gap-4">
-            <a href="#about" class="text-muted-foreground hover:text-accent transition-colors"
-              >About</a
-            >
-            <a href="#experience" class="text-muted-foreground hover:text-accent transition-colors"
-              >Experience</a
-            >
-            <a href="#projects" class="text-muted-foreground hover:text-accent transition-colors"
-              >Projects</a
-            >
-          </nav>
+          <ScrollSpy client:load />
         </div>
         <div class="flex gap-4 mt-8">
           <a href="#" aria-label="GitHub"><Github className="w-5 h-5 text-primary" /></a>

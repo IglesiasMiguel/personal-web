@@ -2,13 +2,14 @@
 // src/pages/index.astro
 import Layout from '@/layouts/Layout.astro';
 import type { PageMeta } from '@/lib/constants';
+import ExperienceCard from '@/components/ExperienceCard';
 
 const meta: PageMeta = {};
 ---
 
 <Layout {...meta}>
-  <section id="about" class="max-w-3xl mx-auto py-20">
-    <p>
+  <section id="about" class="max-w-2xl ml-0 md:ml-24 py-24">
+    <p class="text-lg text-foreground leading-relaxed">
       Soy un desarrollador apasionado por crear experiencias web accesibles y de alto rendimiento...
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat porro possimus culpa sunt
       accusamus eos beatae facere quisquam! Doloribus repellendus ratione sit, exercitationem fugiat
@@ -20,12 +21,36 @@ const meta: PageMeta = {};
       voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
     </p>
   </section>
-  <section id="experience" class="max-w-3xl mx-auto py-20">
-    <h2 class="text-2xl font-bold mb-4 text-primary">Experience</h2>
-    <p>Aquí irá tu experiencia profesional, puestos, empresas y logros destacados.</p>
+  <section id="experience" class="max-w-2xl ml-0 md:ml-24 py-16">
+    <h2 class="text-3xl font-bold mb-8 text-primary">Experience</h2>
+    <ExperienceCard
+      company="Klaviyo"
+      role="Senior Frontend Engineer, Accessibility"
+      period="2024 — PRESENT"
+      description="Build and maintain critical components used to construct Klaviyo’s frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility."
+      techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
+      link="https://www.klaviyo.com/"
+    />
+    <!-- Más tarjetas aquí -->
   </section>
-  <section id="projects" class="max-w-3xl mx-auto py-20">
-    <h2 class="text-2xl font-bold mb-4 text-primary">Projects</h2>
-    <p>Aquí puedes mostrar tus proyectos más relevantes, con enlaces y descripciones.</p>
+  <section id="projects" class="max-w-2xl ml-0 md:ml-24 py-16">
+    <h2 class="text-3xl font-bold mb-8 text-primary">Projects</h2>
+    <ExperienceCard
+      company="Klaviyo"
+      role="Senior Frontend Engineer, Accessibility"
+      period="2024 — PRESENT"
+      description="Build and maintain critical components used to construct Klaviyo’s frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility."
+      techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
+      link="https://www.klaviyo.com/"
+    />
+    <ExperienceCard
+      company="Klaviyo"
+      role="Senior Frontend Engineer, Accessibility"
+      period="2024 — PRESENT"
+      description="Build and maintain critical components used to construct Klaviyo’s frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility."
+      techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
+      link="https://www.klaviyo.com/"
+    />
+    <!-- Aquí irán los proyectos -->
   </section>
 </Layout>
