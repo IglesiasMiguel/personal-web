@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 const CURSOR_RADIUS = 600;
 
-export default function CursorEffect() {
+export default function CursorEffect({ className = '' }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouse = useRef({ x: 0, y: 0 });
 
@@ -79,11 +79,13 @@ export default function CursorEffect() {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0"
-      style={{ width: '100vw', height: '100vh' }}
-      aria-hidden="true"
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        className={`fixed inset-0 pointer-events-none z-0 ${className}`}
+        style={{ width: '100vw', height: '100vh' }}
+        aria-hidden="true"
+      />
+    </>
   );
 }
