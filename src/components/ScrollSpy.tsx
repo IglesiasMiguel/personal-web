@@ -19,14 +19,16 @@ export default function ScrollSpy() {
       let current = sections[0].id;
       for (const section of sections) {
         const el = document.getElementById(section.id);
-        if (el && window.scrollY + 120 >= el.offsetTop) {
+        if (el && window.scrollY + 100 >= el.offsetTop) {
           current = section.id;
         }
       }
       setActive(current);
     };
+
     window.addEventListener('scroll', handler);
     handler();
+
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
@@ -36,14 +38,25 @@ export default function ScrollSpy() {
         <a
           key={section.id}
           href={`#${section.id}`}
-          className={`group flex items-center gap-2 transition-all ${
-            active === section.id ? 'font-bold text-accent scale-105 ml-2' : 'text-muted-foreground'
-          }`}
+          onClick={(e) => {
+            e.preventDefault();
+            const el = document.getElementById(section.id);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }}
+          className={`group flex items-center gap-2 transition-all duration-200 ease-in-out 
+            ${
+              active === section.id ? 'font-bold text-primary' : 'text-accent hover:text-foreground'
+            }`}
         >
           <span
-            className={`block w-2 h-2 rounded-full transition-all ${
-              active === section.id ? 'bg-accent scale-150' : 'bg-muted'
-            }`}
+            className={`block h-0.5 transition-all duration-200 ease-in-out 
+              ${
+                active === section.id
+                  ? 'w-12 bg-accent'
+                  : 'w-6 bg-muted group-hover:w-9 group-hover:bg-accent'
+              }`}
           ></span>
           {section.label}
         </a>
