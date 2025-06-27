@@ -3,11 +3,7 @@
 import Head from '@/components/Head.astro';
 import '@/styles/global.css';
 import type { PageMeta } from '@/lib/constants';
-import {
-  FaGithub as Github,
-  FaLinkedin as Linkedin,
-  FaInstagram as Instagram,
-} from 'react-icons/fa';
+import SocialIcons from '@/components/SocialIcons.astro';
 import CursorEffect from '@/components/CursorEffect';
 import ScrollSpy from '@/components/ScrollSpy';
 
@@ -17,37 +13,21 @@ const props = Astro.props as PageMeta;
 <!doctype html>
 <html lang="en">
   <Head {...props} />
-  <body class="bg-background text-foreground min-h-screen">
-    <div class="flex flex-col lg:flex-row min-h-screen">
-      <!-- Mobile aside -->
-      <aside class="flex lg:hidden flex-col items-center gap-2 px-6 py-6 w-full bg-background">
-        <h1 class="text-2xl font-bold">Miguel Iglesias</h1>
-        <p class="text-base">Informatics Engineer</p>
-        <div class="flex gap-4 mt-2">
-          <a href="#" aria-label="GitHub"><Github className="w-5 h-5 text-primary" /></a>
-          <a href="#" aria-label="LinkedIn"><Linkedin className="w-5 h-5 text-primary" /></a>
-          <a href="#" aria-label="Instagram"><Instagram className="w-5 h-5 text-primary" /></a>
+  <body class="bg-background text-foreground min-h-screen mx-auto">
+    <div class="layout-root">
+      <!-- Aside -->
+      <aside class="layout-aside">
+        <div>
+          <h1 class="text-2xl lg:text-5xl font-bold mb-2 lg:mb-4">Miguel Iglesias</h1>
+          <p class="text-base lg:text-2xl mb-4 lg:mb-8">Informatics Engineer</p>
+          <div class="ml-1 hidden lg:block">
+            <ScrollSpy client:load />
+          </div>
         </div>
+        <SocialIcons class="social-icons" iconSizeMobile="w-5 h-5" iconSizeDesktop="w-6 h-6" />
       </aside>
-      <!-- Desktop Aside -->
-      <aside
-        class="hidden lg:flex flex-col justify-between py-24 sticky top-0 h-screen lg:w-[48%] lg:px-24"
-      >
-        <div class="w-full max-w-md">
-          <h1 class="text-4xl font-bold mb-2">Miguel Iglesias</h1>
-          <p class="text-lg mb-8">Informatics Engineer</p>
-          <ScrollSpy client:load />
-        </div>
-        <div class="flex gap-4 mt-8">
-          <a href="#" aria-label="GitHub"><Github className="w-6 h-6 text-primary" /></a>
-          <a href="#" aria-label="LinkedIn"><Linkedin className="w-6 h-6 text-primary" /></a>
-          <a href="#" aria-label="Instagram"><Instagram className="w-6 h-6 text-primary" /></a>
-        </div>
-      </aside>
-      <!-- Main content -->
-      <main
-        class="flex-1 lg:w-[52%] flex-col lg:py-24 relative bg-background sm:pr-6 sm:pl-6 md:pr-16 lg:pr-16 lg:pl-0"
-      >
+      <!-- Main -->
+      <main class="layout-main">
         <CursorEffect client:load />
         <slot />
       </main>

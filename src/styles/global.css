@@ -122,3 +122,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+.layout-root {
+  @apply flex flex-col lg:flex-row min-h-screen;
+}
+.layout-aside {
+  @apply flex flex-col items-center lg:items-start justify-between w-full lg:w-[48%] px-6 py-6 lg:py-24 lg:px-24 bg-background;
+  @apply sticky top-0 h-auto lg:h-screen;
+}
+.layout-main {
+  @apply flex-1 flex flex-col items-center lg:items-start px-6 lg:px-0 py-12 lg:py-24 bg-background;
+  @apply lg:w-[52%] lg:pr-16;
+}
+.social-icons {
+  @apply flex gap-4 mt-8;
+}

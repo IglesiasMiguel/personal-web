@@ -1,0 +1,25 @@
+---
+import {
+  FaGithub as Github,
+  FaLinkedin as Linkedin,
+  FaInstagram as Instagram,
+} from 'react-icons/fa';
+
+const {
+  class: className = '',
+  iconSizeMobile = 'w-5 h-5',
+  iconSizeDesktop = 'w-6 h-6',
+} = Astro.props;
+---
+
+<div class={className}>
+  <a href="#" aria-label="GitHub"
+    ><Github className={`${iconSizeMobile} lg:${iconSizeDesktop} text-primary`} /></a
+  >
+  <a href="#" aria-label="LinkedIn"
+    ><Linkedin className={`${iconSizeMobile} lg:${iconSizeDesktop} text-primary`} /></a
+  >
+  <a href="#" aria-label="Instagram"
+    ><Instagram className={`${iconSizeMobile} lg:${iconSizeDesktop} text-primary`} /></a
+  >
+</div>
