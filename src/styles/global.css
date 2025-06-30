@@ -85,6 +85,41 @@
   }
 }
 
+@layer utilities {
+  .animate-star-movement-bottom {
+    animation: star-movement-bottom 6s linear infinite alternate;
+  }
+  .animate-star-movement-top {
+    animation: star-movement-top 6s linear infinite alternate;
+  }
+  @keyframes star-movement-bottom {
+    0% {
+      transform: translate(-100%, 0%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(100%, 0%);
+      opacity: 0;
+    }
+  }
+  @keyframes star-movement-top {
+    0% {
+      transform: translate(100%, 0%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-100%, 0%);
+      opacity: 0;
+    }
+  }
+}
+
 .layout-root {
   @apply flex flex-col lg:flex-row min-h-screen gap-4 px-6 md:px-12 xl:max-w-7xl xl:mx-auto;
 }
