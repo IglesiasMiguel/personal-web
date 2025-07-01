@@ -7,6 +7,7 @@ import SocialIcons from '@/components/SocialIcons.astro';
 import CursorEffect from '@/components/CursorEffect';
 import ScrollSpy from '@/components/ScrollSpy';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import LanguageSelector from '@/components/LanguageSelector';
 
 const props = Astro.props as PageMeta;
 const lang = getLangFromUrl(Astro.url);
@@ -27,7 +28,10 @@ const t = useTranslations(lang);
             <ScrollSpy client:load lang={lang} />
           </div>
         </div>
-        <SocialIcons class="social-icons" iconSizeMobile="w-6 h-6" iconSizeDesktop="w-8 h-8" />
+        <div class="flex items-center gap-4">
+          <SocialIcons class="social-icons" iconSizeMobile="w-6 h-6" iconSizeDesktop="w-8 h-8" />
+          <LanguageSelector className="social-icons" client:load currentLang={lang} />
+        </div>
       </aside>
       <!-- Main -->
       <main class="layout-main">

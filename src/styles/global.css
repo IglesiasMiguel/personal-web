@@ -82,6 +82,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    scrollbar-gutter: stable;
   }
 }
 
@@ -118,6 +119,39 @@
       opacity: 0;
     }
   }
+}
+
+body,
+.layout-root {
+  scrollbar-color: var(--color-accent) var(--color-background);
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar,
+.layout-root::-webkit-scrollbar {
+  width: 8px;
+  background: var(--color-background);
+}
+
+body::-webkit-scrollbar-thumb,
+.layout-root::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 8px;
+}
+
+body::-webkit-scrollbar-track,
+.layout-root::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+html {
+  overflow-y: hidden;
+  height: 100%;
+}
+body {
+  min-height: 100vh;
+  height: auto;
+  overflow-y: auto;
 }
 
 .layout-root {
