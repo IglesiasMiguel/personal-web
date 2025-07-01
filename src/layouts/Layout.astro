@@ -25,12 +25,12 @@ const t = useTranslations(lang);
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 lg:mb-4">Miguel Iglesias</h1>
           <p class="text-lg sm:text-xl lg:text-2xl mb-4 lg:mb-8">{t('layout.role')}</p>
           <div class="hidden lg:block">
-            <ScrollSpy client:load lang={lang} />
+            <ScrollSpy client:load />
           </div>
         </div>
         <div class="flex items-center gap-4">
           <SocialIcons class="social-icons" iconSizeMobile="w-6 h-6" iconSizeDesktop="w-8 h-8" />
-          <LanguageSelector className="social-icons" client:load currentLang={lang} />
+          <LanguageSelector className="social-icons" client:load />
         </div>
       </aside>
       <!-- Main -->

@@ -42,13 +42,27 @@ function XIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default function LanguageSelector({
-  currentLang,
-  className = '',
-}: {
-  currentLang: string;
-  className?: string;
-}) {
+function getLangFromPath(): 'en' | 'es' {
+  const [, lang] = window.location.pathname.split('/');
+  return lang === 'en' || lang === 'es' ? lang : 'en';
+}
+
+export default function LanguageSelector({ className = '' }: { className?: string }) {
+  const [currentLang, setCurrentLang] = React.useState<'en' | 'es'>('en');
+
+  React.useEffect(() => {
+    setCurrentLang(getLangFromPath());
+    const handle = () => setCurrentLang(getLangFromPath());
+    window.addEventListener('popstate', handle);
+    window.addEventListener('pushstate', handle);
+    window.addEventListener('replacestate', handle);
+    return () => {
+      window.removeEventListener('popstate', handle);
+      window.removeEventListener('pushstate', handle);
+      window.removeEventListener('replacestate', handle);
+    };
+  }, []);
+
   const handleChangeLang = (lang: string) => {
     if (lang === 'en') {
       window.location.pathname = '/';

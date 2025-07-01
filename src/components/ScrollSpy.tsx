@@ -1,19 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslations } from '@/i18n/utils';
+import { languages } from '@/i18n/ui';
 
-interface Section {
-  id: string;
-  label: string;
+function getLangFromPath(): 'en' | 'es' {
+  if (typeof window === 'undefined') return 'en'; // Safe fallback for SSR
+  const [, lang] = window.location.pathname.split('/');
+  return lang in languages ? (lang as 'en' | 'es') : 'en';
 }
 
-interface ScrollSpyProps {
-  lang: 'en' | 'es';
-}
-
-export default function ScrollSpy({ lang }: ScrollSpyProps) {
+export default function ScrollSpy() {
+  const [lang, setLang] = React.useState<'en' | 'es'>('en'); // Default to 'en'
   const t = useTranslations(lang);
 
-  const sections: Section[] = [
+  React.useEffect(() => {
+    setLang(getLangFromPath());
+    const handle = () => setLang(getLangFromPath());
+    window.addEventListener('popstate', handle);
+    window.addEventListener('pushstate', handle);
+    window.addEventListener('replacestate', handle);
+    return () => {
+      window.removeEventListener('popstate', handle);
+      window.removeEventListener('pushstate', handle);
+      window.removeEventListener('replacestate', handle);
+    };
+  }, []);
+
+  const sections = [
     { id: 'about', label: t('scrollspy.about') },
     { id: 'experience', label: t('scrollspy.experience') },
     { id: 'projects', label: t('scrollspy.projects') },
