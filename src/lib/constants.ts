@@ -8,21 +8,21 @@ export const isProd = process.env.NODE_ENV === 'production';
 // Set URLs based on NODE_ENV
 export const setSiteUrl = {
   SITE_URL: {
-    DEV: 'http://dev.hoge.com/',
-    STG: 'http://stg.hoge.com/',
-    PROD: 'http://prod.hoge.com/',
+    DEV: 'http://dev.migueliglesias.com/', // o el puerto que uses en dev
+    STG: 'https://stg.migueliglesias.com/',
+    PROD: 'https://migueliglesias.com/',
   },
   BASE_URL: {
     STATUS: false,
-    DEV: '/hoge/',
-    STG: '/hoge/',
-    PROD: '/hoge/',
+    DEV: '/',
+    STG: '/',
+    PROD: '/',
   },
   ASSETS_URL: {
     STATUS: false,
-    DEV: 'http://dev.hoge.assets.com/',
-    STG: 'http://stg.hoge.assets.com/',
-    PROD: 'http://prod.hoge.assets.com/',
+    DEV: 'http://dev.migueliglesias.com/assets/',
+    STG: 'https://stg.migueliglesias.com/assets/',
+    PROD: 'https://migueliglesias.com/assets/',
   },
 };
 
@@ -70,11 +70,11 @@ export const getCurrentAssetsUrl = () => (ASSETS_URL.STATUS ? ASSETS_URL[getCurr
 export const SITE_CONFIG = {
   name: 'Miguel Iglesias',
   title: 'Portfolio',
-  description: 'This is the description',
+  description: "Miguel Iglesias's personal web.",
   url: getCurrentSiteUrl(),
   author: 'Miguel Iglesias',
-  locale: 've_ES',
-  defaultLocale: 've',
+  locale: 'es-VE',
+  defaultLocale: 'es-VE',
 } as const;
 
 // Default SEO settings
@@ -113,11 +113,9 @@ export const DEFAULT_PAGE_META: PageMeta = {
 
 // SNS links (as needed)
 export const SOCIAL_LINKS = {
-  twitter: 'https://twitter.com/hogehoge',
-  facebook: 'https://facebook.com/hogehoge',
-  instagram: 'https://instagram.com/hogehoge',
-  line: 'https://line.me/ti/p/hogehoge',
-  linkedin: 'https://linkedin.com/in/hogehoge',
+  instagram: 'https://instagram.com/mgliglesias',
+  linkedin: 'https://www.linkedin.com/in/miguel-iglesias-09117a356/',
+  github: 'https://github.com/IglesiasMiguel',
 } as const;
 
 // Theme settings (as needed)

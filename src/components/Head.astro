@@ -27,7 +27,9 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5" />
-  <title>{title} | {SITE_CONFIG.name}</title>
+  <title>
+    {Astro.url.pathname === '/' ? SITE_CONFIG.name : `${title} | ${SITE_CONFIG.name}`}
+  </title>
 
   <!-- SEO -->
   <meta name="description" content={description} />
@@ -41,6 +43,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
   <!-- Security and Performance -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="content-language" content={SITE_CONFIG.locale} />
 
   <!-- Prevent automatic format detection -->
   <meta name="format-detection" content="telephone=no,address=no,email=no" />
@@ -69,7 +72,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
     sizes="192x192"
   />
   <link rel="icon" href={`${baseUrl}${PATHS.images.favicon}.svg`} type="image/svg+xml" />
+  <link rel="mask-icon" href={`${baseUrl}${PATHS.images.favicon}.svg`} color="#000000" />
   <link rel="apple-touch-icon" href={`${baseUrl}${PATHS.images.appleTouchIcon}`} />
+
+  <!-- Author and Copyright -->
+  <meta name="author" content={SITE_CONFIG.author} />
+  <meta name="copyright" content={`© ${new Date().getFullYear()} ${SITE_CONFIG.author}`} />
 
   {/* Slot: Additional head elements can be inserted here */}
   <slot />

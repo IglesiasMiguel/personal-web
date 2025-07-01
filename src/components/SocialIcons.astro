@@ -1,4 +1,5 @@
 ---
+import { SOCIAL_LINKS } from '@/lib/constants';
 import {
   FaGithub as Github,
   FaLinkedin as Linkedin,
@@ -13,17 +14,17 @@ const {
 ---
 
 <div class={className}>
-  <a href="#" aria-label="GitHub">
+  <a href={SOCIAL_LINKS.github} aria-label="GitHub" target="_blank" rel="noopener noreferrer">
     <Github
       className={`${iconSizeMobile} lg:${iconSizeDesktop} text-primary transition-all duration-300 hover:scale-110 hover:text-accent mx-1`}
     />
   </a>
-  <a href="#" aria-label="LinkedIn">
+  <a href={SOCIAL_LINKS.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
     <Linkedin
       className={`${iconSizeMobile} lg:${iconSizeDesktop} text-primary transition-all duration-300 hover:scale-110 hover:text-accent mx-1`}
     />
   </a>
-  <a href="#" aria-label="Instagram">
+  <a href={SOCIAL_LINKS.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
     <Instagram
       className={`${iconSizeMobile} lg:${iconSizeDesktop} text-primary transition-all duration-300 hover:scale-110 hover:text-accent mx-1`}
     />

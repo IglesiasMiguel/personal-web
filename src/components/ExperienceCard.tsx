@@ -20,7 +20,7 @@ export default function ExperienceCard({
   link,
 }: ExperienceCardProps) {
   return (
-    <StarBorder as="div" color="cyan" speed="5s" thickness={1} className="mb-8 bg-card/80">
+    <StarBorder as="div" color="var(--primary)" thickness={1} className="mb-8 bg-card/80">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
           <div>
