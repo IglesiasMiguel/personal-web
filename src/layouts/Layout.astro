@@ -6,22 +6,25 @@ import type { PageMeta } from '@/lib/constants';
 import SocialIcons from '@/components/SocialIcons.astro';
 import CursorEffect from '@/components/CursorEffect';
 import ScrollSpy from '@/components/ScrollSpy';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 const props = Astro.props as PageMeta;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!doctype html>
-<html lang="en">
-  <Head {...props} />
+<html lang={lang}>
+  <Head {...props} lang={lang} />
   <body class="bg-background text-foreground min-h-screen mx-auto">
     <div class="layout-root">
       <!-- Aside -->
       <aside class="layout-aside">
         <div>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 lg:mb-4">Miguel Iglesias</h1>
-          <p class="text-lg sm:text-xl lg:text-2xl mb-4 lg:mb-8">Informatics Engineer</p>
+          <p class="text-lg sm:text-xl lg:text-2xl mb-4 lg:mb-8">{t('layout.role')}</p>
           <div class="hidden lg:block">
-            <ScrollSpy client:load />
+            <ScrollSpy client:load lang={lang} />
           </div>
         </div>
         <SocialIcons class="social-icons" iconSizeMobile="w-6 h-6" iconSizeDesktop="w-8 h-8" />

@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslations } from '@/i18n/utils';
 
 interface Section {
   id: string;
   label: string;
 }
 
-const sections: Section[] = [
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-];
+interface ScrollSpyProps {
+  lang: 'en' | 'es';
+}
 
-export default function ScrollSpy() {
+export default function ScrollSpy({ lang }: ScrollSpyProps) {
+  const t = useTranslations(lang);
+
+  const sections: Section[] = [
+    { id: 'about', label: t('scrollspy.about') },
+    { id: 'experience', label: t('scrollspy.experience') },
+    { id: 'projects', label: t('scrollspy.projects') },
+  ];
+
   const [active, setActive] = useState(sections[0].id);
 
   useEffect(() => {
@@ -30,7 +37,7 @@ export default function ScrollSpy() {
     handler();
 
     return () => window.removeEventListener('scroll', handler);
-  }, []);
+  }, [sections]);
 
   return (
     <nav className="flex flex-col gap-4">
