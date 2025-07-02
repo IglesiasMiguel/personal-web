@@ -29,13 +29,7 @@ const ogLocale = localeMap[lang] ?? 'en-US';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5" />
-  <title>
-    {
-      Astro.url.pathname === '/' || Astro.url.pathname === '/es/' || Astro.url.pathname === '/es'
-        ? SITE_CONFIG.name
-        : `${title} | ${SITE_CONFIG.name}`
-    }
-  </title>
+  <title>{SITE_CONFIG.name}</title>
 
   <!-- SEO -->
   <meta name="description" content={description} />

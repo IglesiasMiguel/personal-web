@@ -6,12 +6,12 @@ import type { PageMeta } from '@/lib/constants';
 import SocialIcons from '@/components/SocialIcons.astro';
 import CursorEffect from '@/components/CursorEffect';
 import ScrollSpy from '@/components/ScrollSpy';
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl } from '@/i18n/utils';
 import LanguageSelector from '@/components/LanguageSelector';
+import TransText from '@/components/TransText';
 
 const props = Astro.props as PageMeta;
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
 <!doctype html>
@@ -23,7 +23,11 @@ const t = useTranslations(lang);
       <aside class="layout-aside">
         <div>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 lg:mb-4">Miguel Iglesias</h1>
-          <p class="text-lg sm:text-xl lg:text-2xl mb-4 lg:mb-8">{t('layout.role')}</p>
+          <TransText
+            translationKey="layout.role"
+            className="text-lg sm:text-xl lg:text-2xl mb-4 lg:mb-8"
+            client:load
+          />
           <div class="hidden lg:block">
             <ScrollSpy client:load />
           </div>
