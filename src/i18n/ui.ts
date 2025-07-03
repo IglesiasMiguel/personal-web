@@ -11,7 +11,7 @@ export const ui = {
     'scrollspy.experience': 'Experience',
     'scrollspy.projects': 'Projects',
     'layout.role': 'Informatics Engineer',
-    'layout.description': 'Test',
+    'layout.description': 'Just my personal web',
   },
   es: {
     'scrollspy.about': 'Sobre mí',

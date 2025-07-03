@@ -7,6 +7,7 @@
 
   --background: oklch(0.16 0.02 210);
   --foreground: oklch(0.98 0.01 210);
+  --p-text: oklch(100% 0.00011 271.152 / 0.723);
 
   --card: oklch(0.22 0.02 210);
   --card-foreground: oklch(0.98 0.01 210);
@@ -81,8 +82,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-    scrollbar-gutter: stable;
+    @apply bg-background;
+    color: var(--p-text);
   }
 }
 
@@ -119,39 +120,80 @@
       opacity: 0;
     }
   }
-}
 
-body,
-.layout-root {
-  scrollbar-color: var(--color-accent) var(--color-background);
-  scrollbar-width: thin;
-}
+  /* 44px */
+  .text-h1 {
+    font-size: 2.75rem;
+    line-height: 1.1;
+  }
+  /* 38px */
+  .text-h2 {
+    font-size: 2.375rem;
+    line-height: 1.15;
+  }
+  /* 26px */
+  .text-h3 {
+    font-size: 1.625rem;
+    line-height: 1.2;
+  }
+  /* 22px */
+  .text-h4 {
+    font-size: 1.375rem;
+    line-height: 1.25;
+  }
+  /* 18px */
+  .text-p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+  /* 16px */
+  .text-label {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 
-body::-webkit-scrollbar,
-.layout-root::-webkit-scrollbar {
-  width: 8px;
-  background: var(--color-background);
-}
-
-body::-webkit-scrollbar-thumb,
-.layout-root::-webkit-scrollbar-thumb {
-  background: var(--color-accent);
-  border-radius: 8px;
-}
-
-body::-webkit-scrollbar-track,
-.layout-root::-webkit-scrollbar-track {
-  background: var(--color-background);
+  .text-bold {
+    font-weight: 700;
+  }
+  .text-semibold {
+    font-weight: 600;
+  }
+  .text-medium {
+    font-weight: 500;
+  }
+  .text-regular {
+    font-weight: 400;
+  }
+  .text-light {
+    font-weight: 300;
+  }
+  .text-thin {
+    font-weight: 200;
+  }
 }
 
 html {
-  overflow-y: hidden;
   height: 100%;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--color-accent) var(--color-background);
+  scrollbar-width: thin;
 }
 body {
   min-height: 100vh;
   height: auto;
-  overflow-y: auto;
+  overflow-y: visible;
+}
+html::-webkit-scrollbar {
+  width: 8px;
+  background: var(--color-background);
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 8px;
+}
+html::-webkit-scrollbar-track {
+  background: var(--color-background);
 }
 
 .layout-root {

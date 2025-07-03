@@ -17,17 +17,20 @@ const lang = getLangFromUrl(Astro.url);
 <!doctype html>
 <html lang={lang}>
   <Head {...props} lang={lang} />
-  <body class="bg-background text-foreground min-h-screen mx-auto">
+  <body class="bg-background min-h-screen mx-auto">
     <div class="layout-root">
       <!-- Aside -->
       <aside class="layout-aside">
         <div>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 lg:mb-4">Miguel Iglesias</h1>
+          <h1 class="text-h1 text-bold text-foreground sm:text-4xl lg:text-5xl mb-2 lg:mb-4">
+            Miguel Iglesias
+          </h1>
           <TransText
             translationKey="layout.role"
-            className="text-lg sm:text-xl lg:text-2xl mb-4 lg:mb-8"
+            className="text-h3 text-foreground sm:text-xl lg:text-h2 mb-4"
             client:load
           />
+          <TransText translationKey="layout.description" className="text-p mb-18" client:load />
           <div class="hidden lg:block">
             <ScrollSpy client:load />
           </div>
