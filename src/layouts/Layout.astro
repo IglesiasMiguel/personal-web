@@ -1,19 +1,53 @@
 ---
 // src/layouts/Layout.astro
-import Header from '@/components/Header.astro';
 import Head from '@/components/Head.astro';
 import '@/styles/global.css';
 import type { PageMeta } from '@/lib/constants';
+import SocialIcons from '@/components/SocialIcons.astro';
+import CursorEffect from '@/components/CursorEffect';
+import ScrollSpy from '@/components/ScrollSpy';
+import { getLangFromUrl } from '@/i18n/utils';
+import LanguageSelector from '@/components/LanguageSelector';
+import TransText from '@/components/TransText';
 
 const props = Astro.props as PageMeta;
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="ja">
-  <Head {...props} />
-  <body>
-    <Header />
-    <slot />
+<html lang={lang}>
+  <Head {...props} lang={lang} />
+  <body class="bg-background min-h-screen mx-auto">
+    <div class="layout-root">
+      <!-- Aside -->
+      <aside class="layout-aside">
+        <div>
+          <h1 class="font-bold text-foreground text-4xl md:text-5xl mb-4">Miguel Iglesias</h1>
+          <TransText
+            translationKey="layout.role"
+            className="font-semibold text-xl text-foreground mb-4"
+            client:load
+          />
+          <TransText
+            translationKey="layout.description"
+            className="text-base lg:mb-12 max-w-82"
+            client:load
+          />
+          <div class="hidden lg:block">
+            <ScrollSpy client:load />
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <SocialIcons class="social-icons" iconSizeMobile="w-6 h-6" iconSizeDesktop="w-8 h-8" />
+          <LanguageSelector className="social-icons" client:load />
+        </div>
+      </aside>
+      <!-- Main -->
+      <main class="layout-main">
+        <CursorEffect className="hidden lg:block" client:load />
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
 

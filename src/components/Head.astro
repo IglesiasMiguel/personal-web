@@ -1,6 +1,6 @@
 ---
 // src/components/Head.astro
-import { SITE_CONFIG, DEFAULT_PAGE_META, SEO_DEFAULTS, PATHS } from '@/lib/constants';
+import { SITE_CONFIG, DEFAULT_PAGE_META, SEO_DEFAULTS } from '@/lib/constants';
 import type { PageMeta } from '@/lib/constants';
 
 const props = Astro.props as PageMeta;
@@ -21,13 +21,15 @@ if (!ogImageValue) {
   throw new Error('ogImage is required');
 }
 const ogImageURL = new URL(ogImageValue, Astro.site || SITE_CONFIG.url);
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+const lang = (Astro.props.lang ?? 'en') as keyof typeof localeMap;
+const localeMap = { en: 'en-US', es: 'es-ES' };
+const ogLocale = localeMap[lang] ?? 'en-US';
 ---
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5" />
-  <title>{title} | {SITE_CONFIG.name}</title>
+  <title>{SITE_CONFIG.name}</title>
 
   <!-- SEO -->
   <meta name="description" content={description} />
@@ -41,6 +43,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
   <!-- Security and Performance -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="content-language" content={lang} />
 
   <!-- Prevent automatic format detection -->
   <meta name="format-detection" content="telephone=no,address=no,email=no" />
@@ -52,7 +55,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalURL.href} />
   <meta property="og:image" content={ogImageURL.href} />
-  <meta property="og:locale" content={SITE_CONFIG.locale} />
+  <meta property="og:locale" content={ogLocale} />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content={SEO_DEFAULTS.twitterCard} />
@@ -61,15 +64,15 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
   <meta name="twitter:image" content={ogImageURL.href} />
 
   <!-- Icons -->
-  <link rel="icon" href={`${baseUrl}${PATHS.images.favicon}.ico`} sizes="32x32" />
-  <link
-    rel="icon"
-    href={`${baseUrl}${PATHS.images.favicon}.png`}
-    type="image/png"
-    sizes="192x192"
-  />
-  <link rel="icon" href={`${baseUrl}${PATHS.images.favicon}.svg`} type="image/svg+xml" />
-  <link rel="apple-touch-icon" href={`${baseUrl}${PATHS.images.appleTouchIcon}`} />
+  <link rel="icon" href="/assets/common/images/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/assets/common/images/favicon.png" type="image/png" sizes="192x192" />
+  <link rel="icon" href="/assets/common/images/favicon.svg" type="image/svg+xml" />
+  <link rel="mask-icon" href="/assets/common/images/favicon.svg" color="#000000" />
+  <link rel="apple-touch-icon" href="/assets/common/images/apple-touch-icon.png" />
+
+  <!-- Author and Copyright -->
+  <meta name="author" content={SITE_CONFIG.author} />
+  <meta name="copyright" content={`© ${new Date().getFullYear()} ${SITE_CONFIG.author}`} />
 
   {/* Slot: Additional head elements can be inserted here */}
   <slot />

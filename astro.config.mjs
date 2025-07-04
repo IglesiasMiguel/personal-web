@@ -143,5 +143,14 @@ export default defineConfig({
       },
     },
     esbuild: (process.env.NODE_ENV === 'production' ) ? { drop: ['console', 'debugger'] } : {},
-  }
+  },
+  i18n: {
+    defaultLocale: 'en', 
+    locales: ['en', 'es'],
+    routing: {
+      prefixDefaultLocale: false, 
+      redirectToDefaultLocale: true,
+      fallbackType: 'redirect'
+    }
+  },
 });
