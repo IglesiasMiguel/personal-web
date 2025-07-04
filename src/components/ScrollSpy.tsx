@@ -64,7 +64,7 @@ export default function ScrollSpy() {
               el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
           }}
-          className={`group flex items-center gap-2 transition-all duration-200 ease-in-out 
+          className={`group flex items-center gap-2 transition-all duration-200 ease-in-out text-lg
             ${
               active === section.id ? 'font-bold text-primary' : 'text-accent hover:text-foreground'
             }`}

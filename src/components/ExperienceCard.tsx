@@ -20,7 +20,7 @@ export default function ExperienceCard({
   link,
 }: ExperienceCardProps) {
   return (
-    <StarBorder as="div" color="var(--primary)" thickness={1} className="mb-8 bg-card/80">
+    <StarBorder as="div" color="var(--primary)" thickness={1} className="mb-8 bg-card/80 w-full">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
           <div>
@@ -44,7 +44,7 @@ export default function ExperienceCard({
           </div>
         </CardHeader>
         <CardContent>
-          <p className="mb-4 text-foreground">{description}</p>
+          <p className="mb-4 text-base">{description}</p>
           <div className="flex flex-wrap gap-2">
             {techs.map((tech) => (
               <Badge key={tech} variant="secondary">

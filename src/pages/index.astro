@@ -3,22 +3,28 @@
 import Layout from '@/layouts/Layout.astro';
 import type { PageMeta } from '@/lib/constants';
 import ExperienceCard from '@/components/ExperienceCard';
+import ProjectCard from '@/components/ProjectCard';
 
 const meta: PageMeta = {};
 ---
 
 <Layout {...meta}>
-  <section id="about" class="max-w-4xl lg:max-w-2xl py-24">
-    <h2 class="block lg:hidden sticky top-0 z-10 bg-background text-2xl sm:text-3xl font-bold py-4">
+  <section id="about" class="w-full max-w-4xl py:16 lg:py-24">
+    <h2
+      class="block lg:hidden sticky top-0 z-10 bg-background/75 text-foreground text-lg sm:text-3xl font-bold py-4"
+    >
       About
     </h2>
-    <p class="text-p leading-relaxed">
+    <p class="text-base">
       I am Miguel Iglesias, a Computer Engineer graduated from UCLA (Universidad Centroccidental
-      Lisandro Alvarado) in 2025.
+      Lisandro Alvarado) in 2025.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+      voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
     </p>
   </section>
-  <section id="experience" class="max-w-4xl py-16">
-    <h2 class="block lg:hidden sticky top-0 z-10 bg-background text-2xl sm:text-3xl font-bold py-4">
+  <section id="experience" class="w-full max-w-4xl py-16">
+    <h2
+      class="block lg:hidden sticky top-0 z-10 bg-background/75 text-foreground text-lg sm:text-3xl font-bold py-4"
+    >
       Experience
     </h2>
     <ExperienceCard
@@ -29,11 +35,6 @@ const meta: PageMeta = {};
       techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
       link="https://www.youtube.com/"
     />
-  </section>
-  <section id="projects" class="max-w-4xl py-16">
-    <h2 class="block lg:hidden sticky top-0 z-10 bg-background text-2xl sm:text-3xl font-bold py-4">
-      Projects
-    </h2>
     <ExperienceCard
       company="YouTube"
       role="Informatics Engineer"
@@ -42,11 +43,27 @@ const meta: PageMeta = {};
       techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
       link="https://www.youtube.com/"
     />
+  </section>
+  <section id="projects" class="w-full max-w-4xl py-16">
+    <h2
+      class="block lg:hidden sticky top-0 z-10 bg-background/75 text-foreground text-lg sm:text-3xl font-bold py-4"
+    >
+      Projects
+    </h2>
+    <ProjectCard
+      title="YouTube Clone"
+      description="A clone of YouTube built with React and Tailwind CSS.  sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+      techs={['React', 'Tailwind CSS', 'JavaScript']}
+      link="https://www.youtube.com/"
+      imageSrc="/assets/common/images/favicon.svg"
+      imageAlt="YouTube Clone Screenshot"
+    />
+
     <ExperienceCard
       company="YouTube"
       role="Informatics Engineer"
       period="2025 — PRESENT"
-      description="lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+      description="lorem ipsum dolor sit amet consectetur adipisicing sttetstyagssaf tetetesttstsst elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
       techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
       link="https://www.youtube.com/"
     />

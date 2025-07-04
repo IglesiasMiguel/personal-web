@@ -77,7 +77,7 @@ export default function LanguageSelector({ className = '' }: { className?: strin
       <div className="hidden sm:block">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="flex items-center gap-2">
+            <Button variant="outline" className="flex items-center gap-2 text-foreground">
               <GlobeIcon className="h-5 w-5" />
               <span>{currentLang.toUpperCase()}</span>
               <ChevronDownIcon className="h-4 w-4" />
@@ -87,7 +87,7 @@ export default function LanguageSelector({ className = '' }: { className?: strin
             {Object.entries(languages).map(([lang, label]) => (
               <DropdownMenuItem
                 key={lang}
-                className="flex items-center justify-between"
+                className="flex items-center justify-between text-foreground"
                 onClick={() => handleChangeLang(lang)}
               >
                 <span>{label}</span>
@@ -100,7 +100,7 @@ export default function LanguageSelector({ className = '' }: { className?: strin
       {/* Mobile */}
       <Drawer>
         <DrawerTrigger asChild>
-          <Button variant="outline" className="flex items-center gap-2 sm:hidden">
+          <Button variant="outline" className="flex items-center gap-2 sm:hidden text-foreground">
             <GlobeIcon className="h-5 w-5" />
             <span>{currentLang.toUpperCase()}</span>
             <ChevronDownIcon className="h-4 w-4" />
@@ -109,7 +109,7 @@ export default function LanguageSelector({ className = '' }: { className?: strin
         <DrawerContent>
           <div className="grid gap-4 p-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-medium">Select Language</h3>
+              <h3 className="text-lg text-foreground font-medium">Select Language</h3>
               <DrawerClose asChild>
                 <Button variant="ghost" size="icon" className="h-8 w-8">
                   <XIcon className="h-5 w-5" />

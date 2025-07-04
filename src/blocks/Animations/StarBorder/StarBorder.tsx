@@ -63,7 +63,7 @@ const StarBorder = <T extends React.ElementType = 'button'>({
           animationDuration: speed,
         }}
       ></div>
-      <div className="relative z-1 bg-transparent border-none p-0">{children}</div>
+      <div className="relative z-1 bg-transparent p-0">{children}</div>
     </Component>
   );
 };
