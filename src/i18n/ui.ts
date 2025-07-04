@@ -11,13 +11,15 @@ export const ui = {
     'scrollspy.experience': 'Experience',
     'scrollspy.projects': 'Projects',
     'layout.role': 'Informatics Engineer',
-    'layout.description': 'Just my personal web',
+    'layout.description':
+      'Bilingual Computer Engineer and English instructor, I develop apps and websites focused on simplicity and ease of use.',
   },
   es: {
     'scrollspy.about': 'Sobre mí',
     'scrollspy.experience': 'Experiencia',
     'scrollspy.projects': 'Proyectos',
     'layout.role': 'Ingeniero Informático',
-    'layout.description': 'Prueba',
+    'layout.description':
+      'Ingeniero informático bilingüe y docente de inglés, desarrollo apps y webs enfocadas en simplicidad y facilidad de uso.',
   },
 } as const;

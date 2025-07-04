@@ -3,59 +3,103 @@
 import Layout from '@/layouts/Layout.astro';
 import type { PageMeta } from '@/lib/constants';
 import ExperienceCard from '@/components/ExperienceCard';
+import ProjectCard from '@/components/ProjectCard';
 
 const meta: PageMeta = {};
 ---
 
 <Layout {...meta}>
-  <section id="about" class="max-w-4xl lg:max-w-2xl py-24">
-    <h2 class="block lg:hidden sticky top-0 z-10 bg-background text-2xl sm:text-3xl font-bold py-4">
-      Sobre mí
+  <section id="about" class="w-full max-w-4xl mb-16 md:mb-24 lg:mb-32 lg:pt-24">
+    <h2
+      class="block lg:hidden sticky top-0 z-10 bg-background/75 text-foreground text-lg sm:text-3xl font-bold py-4"
+    >
+      Acerca de
     </h2>
-    <p class="text-lg text-foreground leading-relaxed">
-      Soy un desarrollador apasionado por crear experiencias web accesibles y de alto rendimiento...
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat porro possimus culpa sunt
-      accusamus eos beatae facere quisquam! Doloribus repellendus ratione sit, exercitationem fugiat
-      aut maxime consectetur cum ea soluta. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Alias fugiat, illo sequi itaque cupiditate maxime eius modi id blanditiis temporibus?
-      Molestias sequi consequatur, delectus in id quo eum doloribus vero. lorem ipsum dolor sit amet
-      consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-      voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+    <p class="text-base">
+      ¡Hola! Soy Miguel Iglesias, me gradué en Ingeniería Informática en la Universidad
+      Centroccidental Lisandro Alvarado (UCLA), promoción 2025-1. Cuando era adolescente me sentí
+      atraído inicialmente por la medicina, pero descubrí este mundo donde la resolución lógica de
+      problemas se une a la creatividad sin límites. Hacia el final de mis estudios, lideré el
+      desarrollo móvil de “PharmaTech”, una plataforma de comercio digital de extremo a extremo para
+      una farmacia ficticia en Venezuela. Utilizando Expo, React Native, TypeScript e integración de
+      datos en tiempo real con WebSockets y las APIs de Google Maps, construí una experiencia de app
+      fluida y aprendí el verdadero valor del trabajo en equipo ágil, el diseño centrado en el
+      usuario y la atención al detalle.
+      <br />
+      <br />
+      Más allá del código, soy un apasionado de la enseñanza: impartí clases de inglés en un colegio
+      bilingüe (2018–2019). Actualmente trabajo como tutor independiente, y creo firmemente que “enseñar
+      es la mejor forma de aprender.” Mi formación bilingüe (español nativo, inglés fluido) me permite
+      crear puentes culturales y comunicar ideas complejas con claridad y empatía. Tanto si desarrollo
+      una nueva función intuitiva como si guío a un alumno en una lección de gramática complicada, mi
+      objetivo es el mismo: crear experiencias atractivas para usuarios y estudiantes por igual.
     </p>
   </section>
-  <section id="experience" class="max-w-4xl py-16">
-    <h2 class="block lg:hidden sticky top-0 z-10 bg-background text-2xl sm:text-3xl font-bold py-4">
+
+  <section id="experience" class="w-full max-w-4xl mb-16 md:mb-24 lg:mb-32">
+    <h2
+      class="block lg:hidden sticky top-0 z-10 bg-background/75 text-foreground text-lg sm:text-3xl font-bold py-4"
+    >
       Experiencia
     </h2>
     <ExperienceCard
-      company="YouTube"
-      role="Informatics Engineer"
-      period="2025 — PRESENT"
-      description="lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-      techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
-      link="https://www.youtube.com/"
+      company="Colegio Las Colinas, Barquisimeto"
+      role="Profesor de Inglés"
+      period="2018 — 2019"
+      description="Planifiqué e impartí clases de inglés de 3 horas diarias, de lunes a viernes, para dos de las cuatro secciones de cada grado. Creé planes de lección semanales basados en temas gramaticales, diseñé actividades interactivas, evalué habilidades de expresión oral, comprensión auditiva, lectura y escritura, y gestioné proyectos de estudiantes. Además, elaboré informes de desempeño para la institución y los padres, logrando una alta participación y avances medibles en el idioma."
+      techs={['Planificación de lecciones', 'Actividades interactivas', 'Diseño de evaluaciones']}
+    />
+
+    <ExperienceCard
+      company="Freelance"
+      role="Tutor de Inglés"
+      period="2020 — Presente"
+      description="Ofrezco tutorías de inglés personalizadas (online y presenciales) a más de 50 alumnos durante mi trayectoria. Desarrollo planes de estudio a medida y herramientas de seguimiento de progreso. Me enfoco en la fluidez conversacional, preparación de exámenes y dominio gramatical, logrando mejoras significativas en los resultados de pruebas y comunicación efectiva."
+      techs={['Planificación de lecciones', 'Evaluación de progreso']}
+      email="miglesiasaraque@gmail.com"
+    />
+
+    <ExperienceCard
+      company="PharmaTech"
+      role="Líder de Desarrollo Móvil"
+      period="2024 — 2025"
+      description="Encabecé el desarrollo de la app móvil en React Native para PharmaTech, una plataforma de comercio digital de extremo a extremo integral para una farmacia local. Implementé actualizaciones de inventario en tiempo real con WebSockets, integré Google Maps para servicios de ubicación y colaboré con un equipo de tres personas bajo metodología Scrum."
+      techs={['React Native', 'TypeScript', 'Expo', 'WebSockets', 'Google Maps API']}
+      link="https://github.com/PharmaTechVe/app"
     />
   </section>
-  <section id="projects" class="max-w-4xl py-16">
-    <h2 class="block lg:hidden sticky top-0 z-10 bg-background text-2xl sm:text-3xl font-bold py-4">
+
+  <section id="projects" class="w-full max-w-4xl mb-16 md:mb-24 lg:mb-32">
+    <h2
+      class="block lg:hidden sticky top-0 z-10 bg-background/75 text-foreground text-lg sm:text-3xl font-bold py-4"
+    >
       Proyectos
     </h2>
-    <ExperienceCard
-      company="YouTube"
-      role="Informatics Engineer"
-      period="2025 — PRESENT"
-      description="lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-      techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
-      link="https://www.youtube.com/"
+    <ProjectCard
+      title="MovieVerse"
+      description="Una app social de cine inspirada en Letterboxd. Navega las películas de moda a través de la API de TMDB, guarda favoritos y crea y comparte tus propias publicaciones. Interactúa comentando y dando ‘me gusta’."
+      techs={['React Native', 'JavaScript', 'Expo', 'AsyncStorage']}
+      link="https://github.com/IglesiasMiguel/MovieVerse"
+      imageSrc="/assets/screenshots/movieverse-feed.png"
+      imageAlt="Captura de pantalla del feed de MovieVerse"
     />
-    <ExperienceCard
-      company="YouTube"
-      role="Informatics Engineer"
-      period="2025 — PRESENT"
-      description="lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-      techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
-      link="https://www.youtube.com/"
+
+    <ProjectCard
+      title="Portafolio Personal"
+      description="Sitio web de portafolio moderno creado con Astro, React, TailwindCSS y shadcn/ui para mostrar mis proyectos, habilidades y escritos."
+      techs={['Astro', 'React', 'TailwindCSS', 'shadcn/ui']}
+      link="https://github.com/IglesiasMiguel/personal-web"
+      imageSrc="/assets/screenshots/personal-portfolio.png"
+      imageAlt="Captura de pantalla del portafolio personal"
+    />
+
+    <ProjectCard
+      title="Banca en Línea Universitaria"
+      description="Plataforma de banca en línea para una universidad, con vista de cuentas, transferencias de fondos e historial de transacciones, construida con React y Vite."
+      techs={['React', 'Vite', 'JavaScript', 'TailwindCSS']}
+      link="https://github.com/IglesiasMiguel/banco-universitario-banca-online"
+      imageSrc="/assets/screenshots/university-banking.png"
+      imageAlt="Captura de pantalla de la banca en línea universitaria"
     />
   </section>
 </Layout>

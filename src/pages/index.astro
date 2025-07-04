@@ -9,63 +9,94 @@ const meta: PageMeta = {};
 ---
 
 <Layout {...meta}>
-  <section id="about" class="w-full max-w-4xl py:16 lg:py-24">
+  <section id="about" class="w-full max-w-4xl mb-16 md:mb-24 lg:mb-32 lg:pt-24">
     <h2
       class="block lg:hidden sticky top-0 z-10 bg-background/75 text-foreground text-lg sm:text-3xl font-bold py-4"
     >
       About
     </h2>
     <p class="text-base">
-      I am Miguel Iglesias, a Computer Engineer graduated from UCLA (Universidad Centroccidental
-      Lisandro Alvarado) in 2025.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-      voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+      Hi! I’m Miguel Iglesias, an Informatics Engineering graduate from Universidad Centroccidental
+      Lisandro Alvarado (UCLA), Class of 2025-1. As a teenager I was originally drawn to medicine
+      but I ended up truly discovering this world, where logical problem-solving meets endless
+      creativity. Towards the end of my studies, I led the mobile development of “PharmaTech”. It is
+      an end-to-end e-commerce platform for a fictional pharmacy in Venezuela. Using Expo, React
+      Native, TypeScript, and real-time data integration with WebSockets and Google Maps APIs, I
+      built a seamless app experience and learned the real value of agile teamwork, user-driven
+      design and attention to detail.
+      <br />
+      <br />
+      Beyond coding, I’d say I'm a passionate educator: I’ve taught English both in a bilingual school
+      setting (2018-2019) and as a freelance tutor, and I firmly believe that “to teach is to learn twice.”
+      My bilingual background (Spanish native, fluent English) allows me to bridge cultures and communicate
+      complex ideas clearly and empathetically. No matter if I'm developing an intuitive feature or guiding/helping
+      a student through a tough grammar lesson, my goal is the same: craft engaging experiences for users
+      and learners alike.
     </p>
   </section>
-  <section id="experience" class="w-full max-w-4xl py-16">
+  <section id="experience" class="w-full max-w-4xl mb-16 md:mb-24 lg:mb-32">
     <h2
       class="block lg:hidden sticky top-0 z-10 bg-background/75 text-foreground text-lg sm:text-3xl font-bold py-4"
     >
       Experience
     </h2>
     <ExperienceCard
-      company="YouTube"
-      role="Informatics Engineer"
-      period="2025 — PRESENT"
-      description="lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-      techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
-      link="https://www.youtube.com/"
+      company="Colegio Las Colinas, Barquisimeto"
+      role="English Teacher"
+      period="2018 — 2019"
+      description="Planned and delivered every weekday 3-hour English classes for two of four grade sections. I created weekly lesson plans based on given grammar topics, designed interactive activities, assessed speaking, listening, reading & writing, and managed student projects. Prepared regular performance reports for the institution and parents, achieving high engagement and measurable language gains."
+      techs={['Lesson Planning', 'Interactive Activities', 'Assessment Design']}
     />
+
     <ExperienceCard
-      company="YouTube"
-      role="Informatics Engineer"
-      period="2025 — PRESENT"
-      description="lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-      techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
-      link="https://www.youtube.com/"
+      company="Freelance"
+      role="English Tutor"
+      period="2018 — Present"
+      description="Provide tailored English tutoring (online and in-person) for over 50 students throughout my trajectory. I develop customized lesson plans and progress-tracking tools. Focus on conversational fluency, exam preparation, and grammar mastery with measurable improvement in test scores and effective communication."
+      techs={['Lesson Planning', 'Progress Assessment']}
+      email="miglesiasaraque@gmail.com"
+    />
+
+    <ExperienceCard
+      company="PharmaTech"
+      role="Mobile Lead Developer"
+      period="2024 — 2025"
+      description="Led the React Native mobile app for PharmaTech, an end-to-end e-commerce platform for a local pharmacy. Implemented real-time inventory updates via WebSockets, integrated Google Maps for location services, and collaborated with a 3-member team under Scrum."
+      techs={['React Native', 'TypeScript', 'Expo', 'WebSockets', 'Google Maps API']}
+      link="https://github.com/PharmaTechVe/app"
     />
   </section>
-  <section id="projects" class="w-full max-w-4xl py-16">
+  <section id="projects" class="w-full max-w-4xl mb-16 md:mb-24 lg:mb-32">
     <h2
       class="block lg:hidden sticky top-0 z-10 bg-background/75 text-foreground text-lg sm:text-3xl font-bold py-4"
     >
       Projects
     </h2>
     <ProjectCard
-      title="YouTube Clone"
-      description="A clone of YouTube built with React and Tailwind CSS.  sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-      techs={['React', 'Tailwind CSS', 'JavaScript']}
-      link="https://www.youtube.com/"
-      imageSrc="/assets/common/images/favicon.svg"
-      imageAlt="YouTube Clone Screenshot"
+      title="MovieVerse"
+      description="A social movie app inspired by Letterboxd. Browse trending films via the TMDB API, save favorites, and create and share your own movie posts. Engage with others by commenting and liking posts."
+      techs={['React Native', 'JavaScript', 'Expo', 'AsyncStorage']}
+      link="https://github.com/IglesiasMiguel/MovieVerse"
+      imageSrc="/assets/screenshots/movieverse-feed.png"
+      imageAlt="MovieVerse feed screenshot"
     />
 
-    <ExperienceCard
-      company="YouTube"
-      role="Informatics Engineer"
-      period="2025 — PRESENT"
-      description="lorem ipsum dolor sit amet consectetur adipisicing sttetstyagssaf tetetesttstsst elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-      techs={['JavaScript', 'TypeScript', 'React', 'Storybook']}
-      link="https://www.youtube.com/"
+    <ProjectCard
+      title="Personal Portfolio"
+      description="A modern portfolio website built with Astro, React, TailwindCSS and shadcn/ui to showcase my projects, skills and writing."
+      techs={['Astro', 'React', 'TailwindCSS', 'shadcn/ui']}
+      link="https://github.com/IglesiasMiguel/personal-web"
+      imageSrc="/assets/screenshots/personal-portfolio.png"
+      imageAlt="Personal Portfolio Screenshot"
+    />
+
+    <ProjectCard
+      title="University Online Banking"
+      description="An online banking platform for a university, featuring account overview, fund transfers and transaction history, built with React and Vite."
+      techs={['React', 'Vite', 'JavaScript', 'TailwindCSS']}
+      link="https://github.com/IglesiasMiguel/banco-universitario-banca-online"
+      imageSrc="/assets/screenshots/university-banking.png"
+      imageAlt="University Online Banking Screenshot"
     />
   </section>
 </Layout>

@@ -9,6 +9,7 @@ interface ExperienceCardProps {
   description: string;
   techs: string[];
   link?: string;
+  email?: string;
 }
 
 export default function ExperienceCard({
@@ -18,6 +19,7 @@ export default function ExperienceCard({
   description,
   techs,
   link,
+  email,
 }: ExperienceCardProps) {
   return (
     <StarBorder as="div" color="var(--primary)" thickness={1} className="mb-8 bg-card/80 w-full">
@@ -45,6 +47,17 @@ export default function ExperienceCard({
         </CardHeader>
         <CardContent>
           <p className="mb-4 text-base">{description}</p>
+          {email && (
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(email);
+                alert('Email copied to clipboard!');
+              }}
+              className="mb-6 text-sm font-medium text-accent hover:underline"
+            >
+              {email}
+            </button>
+          )}
           <div className="flex flex-wrap gap-2">
             {techs.map((tech) => (
               <Badge key={tech} variant="secondary">
