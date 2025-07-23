@@ -12,7 +12,7 @@ export const ui = {
     'scrollspy.projects': 'Projects',
     'layout.role': 'Informatics Engineer',
     'layout.description':
-      'Bilingual Computer Engineer and English instructor, I develop apps and websites focused on simplicity and ease of use.',
+      'Bilingual Informatics Engineer and English instructor, I develop apps and websites focused on simplicity and ease of use.',
   },
   es: {
     'scrollspy.about': 'Sobre mí',

@@ -1,5 +1,5 @@
 ---
-// src/pages/index.astro
+// src/pages/es/index.astro
 import Layout from '@/layouts/Layout.astro';
 import type { PageMeta } from '@/lib/constants';
 import ExperienceCard from '@/components/ExperienceCard';
@@ -53,7 +53,7 @@ const meta: PageMeta = {};
     <ExperienceCard
       company="Freelance"
       role="Tutor de Inglés"
-      period="2020 — Presente"
+      period="2018 — Presente"
       description="Ofrezco tutorías de inglés personalizadas (online y presenciales) a más de 50 alumnos durante mi trayectoria. Desarrollo planes de estudio a medida y herramientas de seguimiento de progreso. Me enfoco en la fluidez conversacional, preparación de exámenes y dominio gramatical, logrando mejoras significativas en los resultados de pruebas y comunicación efectiva."
       techs={['Planificación de lecciones', 'Evaluación de progreso']}
       email="miglesiasaraque@gmail.com"
@@ -63,7 +63,7 @@ const meta: PageMeta = {};
       company="PharmaTech"
       role="Líder de Desarrollo Móvil"
       period="2024 — 2025"
-      description="Encabecé el desarrollo de la app móvil en React Native para PharmaTech, una plataforma de comercio digital de extremo a extremo integral para una farmacia local. Implementé actualizaciones de inventario en tiempo real con WebSockets, integré Google Maps para servicios de ubicación y colaboré con un equipo de tres personas bajo metodología Scrum."
+      description="Encabecé el desarrollo de la app móvil en React Native para PharmaTech, una plataforma de comercio digital de extremo a extremo integral para una farmacia local. Implementé actualizaciones de inventario en tiempo real con WebSockets, integré Google Maps para servicios de ubicación y colaboré con múltiples miembros de equipo bajo la metodología Scrum."
       techs={['React Native', 'TypeScript', 'Expo', 'WebSockets', 'Google Maps API']}
       link="https://github.com/PharmaTechVe/app"
     />
@@ -76,12 +76,23 @@ const meta: PageMeta = {};
       Proyectos
     </h2>
     <ProjectCard
+      title="PharmaTech App"
+      description="App móvil para PharmaTech: plataforma de comercio digital de extremo a extremo para farmacias en Venezuela. Inventario en tiempo real, integración con Google Maps y una experiencia de usuario fluida, desarrollada con React Native."
+      techs={['React Native', 'TypeScript', 'Expo', 'WebSockets', 'Google Maps API']}
+      link="https://github.com/PharmaTechVe/app"
+      imageSrc="/assets/common/images/pharmatech.jpg"
+      imageAlt="Captura de pantalla de la app móvil PharmaTech"
+      imageOrientation="vertical"
+    />
+
+    <ProjectCard
       title="MovieVerse"
       description="Una app social de cine inspirada en Letterboxd. Navega las películas de moda a través de la API de TMDB, guarda favoritos y crea y comparte tus propias publicaciones. Interactúa comentando y dando ‘me gusta’."
-      techs={['React Native', 'JavaScript', 'Expo', 'AsyncStorage']}
+      techs={['React Native', 'JavaScript', 'Expo', 'AsyncStorage', 'TMDB API']}
       link="https://github.com/IglesiasMiguel/MovieVerse"
-      imageSrc="/assets/screenshots/movieverse-feed.png"
+      imageSrc="/assets/common/images/movieverse.jpg"
       imageAlt="Captura de pantalla del feed de MovieVerse"
+      imageOrientation="vertical"
     />
 
     <ProjectCard
@@ -89,7 +100,7 @@ const meta: PageMeta = {};
       description="Sitio web de portafolio moderno creado con Astro, React, TailwindCSS y shadcn/ui para mostrar mis proyectos, habilidades y escritos."
       techs={['Astro', 'React', 'TailwindCSS', 'shadcn/ui']}
       link="https://github.com/IglesiasMiguel/personal-web"
-      imageSrc="/assets/screenshots/personal-portfolio.png"
+      imageSrc="/assets/common/images/personal-web.png"
       imageAlt="Captura de pantalla del portafolio personal"
     />
 
@@ -98,7 +109,7 @@ const meta: PageMeta = {};
       description="Plataforma de banca en línea para una universidad, con vista de cuentas, transferencias de fondos e historial de transacciones, construida con React y Vite."
       techs={['React', 'Vite', 'JavaScript', 'TailwindCSS']}
       link="https://github.com/IglesiasMiguel/banco-universitario-banca-online"
-      imageSrc="/assets/screenshots/university-banking.png"
+      imageSrc="/assets/common/images/banco-uni.png"
       imageAlt="Captura de pantalla de la banca en línea universitaria"
     />
   </section>

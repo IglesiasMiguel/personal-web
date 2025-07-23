@@ -9,6 +9,7 @@ interface ProjectCardProps {
   link?: string;
   imageSrc?: string;
   imageAlt?: string;
+  imageOrientation?: 'vertical' | 'horizontal';
 }
 
 export default function ProjectCard({
@@ -18,6 +19,7 @@ export default function ProjectCard({
   link,
   imageSrc,
   imageAlt,
+  imageOrientation = 'horizontal',
 }: ProjectCardProps) {
   return (
     <StarBorder
@@ -29,13 +31,29 @@ export default function ProjectCard({
     >
       <div className="flex flex-col sm:flex-row bg-card rounded-lg shadow-sm overflow-hidden">
         {imageSrc && (
-          <div className="flex-shrink-0 p-4">
-            <div className="sm:w-40 relative aspect-video overflow-hidden bg-card">
+          <div
+            className={
+              imageOrientation === 'vertical'
+                ? 'w-38 self-center sm:w-44 p-4'
+                : 'w-80 self-center sm:w-44 sm:self-start p-4'
+            }
+          >
+            <div
+              className={
+                imageOrientation === 'vertical'
+                  ? 'sm:w-24 relative overflow-hidden bg-card mx-auto'
+                  : 'sm:w-40 relative aspect-video overflow-hidden bg-card mx-auto'
+              }
+            >
               <div className="w-full h-full overflow-hidden rounded-sm border-2">
                 <img
                   src={imageSrc}
                   alt={imageAlt || title}
-                  className="w-full h-full object-cover"
+                  className={
+                    imageOrientation === 'vertical'
+                      ? 'w-auto h-full mx-auto object-cover'
+                      : 'w-full h-full object-cover'
+                  }
                 />
               </div>
             </div>
