@@ -1,0 +1,32 @@
+---
+import { SOCIAL_LINKS } from '@/lib/constants';
+import {
+  FaGithub as Github,
+  FaLinkedin as Linkedin,
+  FaInstagram as Instagram,
+} from 'react-icons/fa';
+
+const {
+  class: className = '',
+  iconSizeMobile = 'w-6 h-6',
+  iconSizeDesktop = 'w-8 h-8',
+} = Astro.props;
+---
+
+<div class={className}>
+  <a href={SOCIAL_LINKS.github} aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+    <Github
+      className={`${iconSizeMobile} lg:${iconSizeDesktop} text-primary transition-all duration-300 hover:scale-110 hover:text-accent mx-1`}
+    />
+  </a>
+  <a href={SOCIAL_LINKS.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+    <Linkedin
+      className={`${iconSizeMobile} lg:${iconSizeDesktop} text-primary transition-all duration-300 hover:scale-110 hover:text-accent mx-1`}
+    />
+  </a>
+  <a href={SOCIAL_LINKS.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+    <Instagram
+      className={`${iconSizeMobile} lg:${iconSizeDesktop} text-primary transition-all duration-300 hover:scale-110 hover:text-accent mx-1`}
+    />
+  </a>
+</div>
