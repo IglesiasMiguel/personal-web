@@ -221,34 +221,34 @@ export const homeContent: Record<HomeLang, HomeContent> = {
   es: {
     brand: 'M. IGLESIAS',
     nav: {
-      about: 'Sobre mi',
+      about: 'Sobre mí',
       projects: 'Proyectos',
       experience: 'Experiencia',
       contact: 'Contacto',
     },
     hero: {
-      eyebrow: '> field status: online',
+      eyebrow: '> estado del sistema: online',
       titleLead: 'Construyo las interfaces',
-      titleAccent: 'y los sistemas de agentes detras de ellas.',
-      identityTag: 'Miguel Iglesias | Desarrollador Frontend y Constructor de Agentes IA',
+      titleAccent: 'y los sistemas de agentes que operan detrás de ellas.',
+      identityTag: 'Miguel Iglesias | Desarrollador frontend y creador de agentes de IA',
       primaryCopy:
-        'Actualmente trabajo en agentes de IA, flujos de automatizacion por WhatsApp, manejo de mensajes con Redis e interfaces de producto pulidas para negocios que necesitan claridad y ejecucion.',
+        'Actualmente trabajo en agentes de IA, flujos de automatización por WhatsApp, manejo de mensajes con Redis e interfaces de producto pulidas para negocios que necesitan claridad y ejecución.',
       secondaryCopy:
-        'Este rediseño replantea mi portafolio como un campo vivo de trabajo en producto, frontend y automatizacion en vez de una lista estatica de proyectos.',
+        'Este rediseño replantea mi portafolio como un campo vivo de trabajo en producto, frontend y automatización, en lugar de una lista estática de proyectos.',
       primaryCta: 'Ver el trabajo',
       secondaryCta: 'Contactarme',
     },
     about: {
-      label: 'identidad | sobre mi',
-      body: 'Soy graduado en Ingenieria Informatica por la UCLA, bilingue, y me he formado tanto desde el oficio frontend como desde la enseñanza y el pensamiento de sistemas. Me muevo entre interfaces web, productos moviles e infraestructura de agentes IA con la misma meta: hacer que el trabajo complejo se sienta claro, humano y confiable.',
+      label: 'identidad | sobre mí',
+      body: 'Soy ingeniero informático egresado de la UCLA, bilingüe, y me he formado tanto desde el oficio frontend como desde la enseñanza y el pensamiento de sistemas. Me muevo entre interfaces web, productos móviles e infraestructura de agentes de IA con la misma meta: hacer que el trabajo complejo se sienta claro, humano y confiable.',
     },
     projects: {
       label: 'nodos activos',
       featured: {
-        label: '01 | Nodo | Sistemas Freelance de Agentes IA',
-        title: 'Agentes de cotizacion y ventas por WhatsApp para negocios de cara al cliente',
+        label: '01 | Nodo | Sistemas freelance de agentes de IA',
+        title: 'Agentes de cotización y ventas por WhatsApp para negocios orientados al cliente',
         description:
-          'Trabajo freelance por proyecto construyendo agentes conversacionales de cotizacion y ventas sobre WhatsApp Business Cloud API, con buffering respaldado por Redis para que rafagas de mensajes se resuelvan como una sola ejecucion limpia. Los nombres de clientes se omiten de forma intencional, asi que esto se presenta como trabajo de infraestructura de agentes para negocios de cara al cliente.',
+          'Trabajo freelance por proyecto creando agentes conversacionales de cotización y ventas sobre WhatsApp Business Cloud API, con buffering respaldado por Redis para que ráfagas de mensajes se resuelvan como una sola ejecución limpia. Los nombres de clientes se omiten de forma intencional, así que esto se presenta como trabajo de infraestructura de agentes para negocios orientados al cliente.',
         workflowSteps: ['MENSAJE', 'COLA', 'AGENTE', 'RESPUESTA'],
         techStack: 'n8n | WhatsApp Business Cloud API | Upstash Redis | Google ADK | Cloud Run',
       },
@@ -256,23 +256,23 @@ export const homeContent: Record<HomeLang, HomeContent> = {
         label: '02 | Nodo | Frontend',
         title: 'Plataforma healthtech (privada)',
         description:
-          'Marketplace de citas medicas para Venezuela, aun sin lanzar. He sido el desarrollador frontend principal, definiendo mapas, contratos OpenAPI, builds nativos de Android y flujos de notificaciones push mientras el producto sigue bajo reserva.',
+          'Marketplace de citas médicas para Venezuela, aún sin lanzamiento. He sido el desarrollador frontend principal, definiendo mapas, contratos OpenAPI, compilaciones nativas de Android y flujos de notificaciones push mientras el producto sigue bajo reserva.',
         techStack: 'React | TypeScript | shadcn/ui | Capacitor.js | OneSignal',
         placeholder: 'Captura no disponible. El producto sigue siendo privado.',
       },
       pharmatech: {
-        label: '03 | Nodo | Movil',
+        label: '03 | Nodo | Móvil',
         title: 'PharmaTech',
         description:
-          'Aplicacion movil de e-commerce para farmacias. Lidere el desarrollo de punta a punta, incluyendo seguimiento de pedidos en tiempo real por WebSockets e integracion de Google Maps para operaciones de entrega.',
+          'Aplicación móvil de e-commerce para farmacias. Lideré el desarrollo de punta a punta, incluyendo seguimiento de pedidos en tiempo real por WebSockets e integración de Google Maps para operaciones de entrega.',
         techStack: 'React Native | Expo | TypeScript | WebSockets | Google Maps API',
         imageSrc: '/assets/common/images/pharmatech.jpg',
-        imageAlt: 'Vista previa de la interfaz movil de PharmaTech',
+        imageAlt: 'Vista previa de la interfaz móvil de PharmaTech',
         link: 'https://github.com/PharmaTechVe/app',
         linkLabel: 'Abrir repositorio',
       },
       archive: {
-        label: 'senales archivadas',
+        label: 'señales archivadas',
         items: [
           {
             name: 'MovieVerse',
@@ -280,71 +280,71 @@ export const homeContent: Record<HomeLang, HomeContent> = {
             link: 'https://github.com/IglesiasMiguel/MovieVerse',
           },
           {
-            name: 'Banca en Linea Universitaria',
+            name: 'Banca en Línea Universitaria',
             tag: 'Prototipo de interfaz bancaria con React y Vite',
             link: 'https://github.com/IglesiasMiguel/banco-universitario-banca-online',
           },
           {
-            name: 'Portafolio Anterior',
-            tag: 'Iteracion previa de este sitio personal',
+            name: 'Portafolio anterior',
+            tag: 'Iteración previa de este sitio personal',
             link: 'https://github.com/IglesiasMiguel/personal-web',
           },
         ],
       },
     },
     experience: {
-      label: 'linea del sistema',
+      label: 'línea del sistema',
       items: [
         {
           period: 'En curso',
-          role: 'Desarrollador Freelance de Agentes IA',
+          role: 'Desarrollador freelance de agentes de IA',
           company: 'Independiente',
           tag: 'Actual',
           emphasis: true,
           description:
-            'Trabajo por proyecto construyendo agentes de WhatsApp, asistentes de cotizacion, flujos de venta, buffering con Redis y demos en la nube para negocios de cara al cliente.',
+            'Trabajo por proyecto creando agentes de WhatsApp, asistentes de cotización, flujos de venta, buffering con Redis y demos en la nube para negocios orientados al cliente.',
           techs: 'n8n | WhatsApp Cloud API | Upstash Redis | Google ADK | Cloud Run',
         },
         {
           period: 'En curso',
-          role: 'Desarrollador Frontend',
+          role: 'Desarrollador frontend',
           company: 'Plataforma healthtech (privada)',
           emphasis: true,
           description:
-            'Desarrollador frontend principal de un marketplace medico aun sin lanzar, encargandome de mapas, contratos OpenAPI y flujos de producto listos para movil.',
+            'Desarrollador frontend principal de un marketplace médico aún sin lanzamiento, encargándome de mapas, contratos OpenAPI y flujos de producto listos para móvil.',
           techs: 'React | TypeScript | Leaflet | Google Maps | Capacitor.js',
         },
         {
           period: 'Ago 2025 - Jun 2026',
-          role: 'Consultor de IA y Metodologia de Proyectos',
+          role: 'Consultor de IA y metodología de proyectos',
           company: 'Universitas',
           tag: 'Reciente',
           description:
-            'Asesoria en soluciones de software, metodologia de proyectos y desarrollo de agentes IA con GCP, Vertex AI, Dialogflow CX, AppSheet, Zapier y flujos Scrumban.',
+            'Asesoré en soluciones de software, metodología de proyectos y desarrollo de agentes de IA con GCP, Vertex AI, Dialogflow CX, AppSheet, Zapier y flujos Scrumban.',
           techs: 'GCP | Vertex AI | Dialogflow CX | AppSheet | Zapier | Scrumban',
         },
         {
           period: 'Rol anterior',
-          role: 'Lider de Desarrollo Movil',
+          role: 'Líder de desarrollo móvil',
           company: 'PharmaTech',
           description:
-            'Lidere el equipo movil construyendo una app de e-commerce para farmacias en React Native con seguimiento de pedidos en tiempo real y un flujo centrado en entregas.',
+            'Lideré el equipo móvil construyendo una app de e-commerce para farmacias en React Native con seguimiento de pedidos en tiempo real y un flujo centrado en entregas.',
           techs: 'React Native | Expo | TypeScript',
         },
         {
           period: 'En curso',
-          role: 'Instructor de Ingles',
+          role: 'Instructor de inglés',
           company: 'Freelance',
           description:
-            'Seguir enseñando y dando tutorias define como documento, explico y entrego sistemas tecnicos con claridad.',
-          techs: 'Comunicacion | Redaccion tecnica',
+            'La enseñanza y las tutorías siguen moldeando cómo documento, explico y entrego sistemas técnicos con claridad.',
+          techs: 'Comunicación | Redacción técnica',
         },
       ],
     },
     contact: {
       label: 'activar',
-      heading: 'Disponible para trabajo en frontend, agentes IA e ingenieria de producto.',
-      footer: '> field.status: esperando senal',
+      heading: 'Disponible para trabajo en frontend, agentes de IA e ingeniería de producto.',
+      footer: '> field.status: esperando señal',
       links: [
         { label: 'LinkedIn', href: SOCIAL_LINKS.linkedin, accent: true },
         { label: 'GitHub', href: SOCIAL_LINKS.github },

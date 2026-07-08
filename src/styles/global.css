@@ -617,34 +617,87 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.3rem;
+    gap: 1.35rem;
+    --timeline-axis-offset: 50%;
+    --timeline-rail-width: clamp(3.75rem, 7vw, 5rem);
+    --timeline-spine-size: 1.9rem;
+    --timeline-signal-size: 0.88rem;
+    --timeline-rail-end: 100%;
+    --timeline-progress-px: 0px;
+    --timeline-signal-opacity: 0;
+  }
+
+  .field-timeline-rail {
+    position: absolute;
+    top: 0;
+    height: var(--timeline-rail-end);
+    left: var(--timeline-axis-offset);
+    width: var(--timeline-rail-width);
+    transform: translateX(-50%);
+    pointer-events: none;
   }
 
   .field-timeline-line {
     position: absolute;
     top: 0;
-    bottom: 0;
-    left: 50%;
+    left: var(--timeline-axis-offset);
+    height: 100%;
     width: 1px;
     background: linear-gradient(
       180deg,
-      rgba(85, 216, 222, 0.35),
+      rgba(85, 216, 222, 0.24),
       rgba(255, 255, 255, 0.12) 35%,
       rgba(255, 255, 255, 0.04)
     );
     transform: translateX(-50%);
   }
 
+  .field-timeline-progress {
+    position: absolute;
+    top: 0;
+    left: var(--timeline-axis-offset);
+    width: 2px;
+    height: var(--timeline-progress-px);
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(166, 237, 239, 0.92), rgba(85, 216, 222, 0.38));
+    box-shadow: 0 0 22px rgba(85, 216, 222, 0.28);
+    transform: translateX(-50%);
+  }
+
+  .field-timeline-signal {
+    position: absolute;
+    top: var(--timeline-progress-px);
+    left: var(--timeline-axis-offset);
+    width: var(--timeline-signal-size);
+    height: var(--timeline-signal-size);
+    border-radius: 999px;
+    border: 1px solid rgba(196, 248, 255, 0.72);
+    background: radial-gradient(
+      circle,
+      rgba(201, 250, 255, 0.96) 0%,
+      rgba(85, 216, 222, 0.94) 52%,
+      rgba(85, 216, 222, 0.08) 100%
+    );
+    box-shadow:
+      0 0 0 0.45rem rgba(85, 216, 222, 0.08),
+      0 0 20px rgba(85, 216, 222, 0.38);
+    opacity: var(--timeline-signal-opacity);
+    transform: translate(-50%, -50%);
+    transition: opacity 180ms ease;
+  }
+
   .field-timeline-item {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 4.5rem minmax(0, 1fr);
-    align-items: center;
-    gap: 0.75rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: clamp(4rem, 8vw, 6rem);
+    min-height: 12rem;
   }
 
   .field-timeline-item.is-left .field-timeline-card {
     grid-column: 1;
+    justify-self: end;
     text-align: right;
   }
 
@@ -652,23 +705,29 @@
     justify-content: flex-end;
   }
 
-  .field-timeline-item.is-right .field-timeline-ghost {
-    grid-column: 1;
-  }
-
   .field-timeline-item.is-right .field-timeline-card {
-    grid-column: 3;
+    grid-column: 2;
+    justify-self: start;
     text-align: left;
   }
 
   .field-timeline-spine {
-    grid-column: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: var(--timeline-axis-offset);
+    display: grid;
+    place-items: center;
+    width: var(--timeline-spine-size);
+    height: var(--timeline-spine-size);
+    border-radius: 999px;
+    border: 1px solid rgba(85, 216, 222, 0.14);
+    background: rgba(8, 14, 22, 0.86);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03);
+    transform: translate(-50%, -50%);
   }
 
   .field-timeline-card {
+    width: min(100%, 31rem);
     padding: 1.25rem 1.35rem;
     border-radius: 1.25rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -711,28 +770,26 @@
     margin-left: 0.3rem;
   }
 
+  .field-timeline-node {
+    transition:
+      transform 220ms ease,
+      background 220ms ease,
+      box-shadow 220ms ease,
+      opacity 220ms ease;
+  }
+
+  .field-timeline-node.is-engaged {
+    transform: scale(1.18);
+    background: #a6edef;
+    box-shadow:
+      0 0 0 1px rgba(166, 237, 239, 0.24),
+      0 0 20px rgba(85, 216, 222, 0.42);
+    opacity: 1;
+  }
+
   .field-contact {
+    padding-top: 1rem;
     padding-bottom: 6rem;
-  }
-
-  .field-contact-hub {
-    display: grid;
-    place-items: center;
-    width: 4rem;
-    height: 4rem;
-    margin: 0 auto 1.25rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(11, 17, 25, 0.6);
-  }
-
-  .field-contact-core {
-    width: 1rem;
-    height: 1rem;
-    border-radius: 999px;
-    background: var(--field-accent);
-    box-shadow: 0 0 0 0 rgba(85, 216, 222, 0.45);
-    animation: field-contact-pulse 2.5s ease-in-out infinite;
   }
 
   .field-contact-title {
@@ -834,29 +891,32 @@
     min-height: 18rem;
   }
 
-  .field-timeline-line {
-    left: 0.38rem;
-    transform: none;
+  .field-timeline-list {
+    --timeline-axis-offset: 0.9rem;
+    --timeline-rail-width: 1.85rem;
+    --timeline-spine-size: 1.45rem;
+    --timeline-signal-size: 0.74rem;
   }
 
   .field-timeline-item {
-    grid-template-columns: 1.5rem minmax(0, 1fr);
-    align-items: start;
-  }
-
-  .field-timeline-ghost {
-    display: none;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    min-height: auto;
+    padding-left: 2.5rem;
   }
 
   .field-timeline-spine {
-    grid-column: 1;
-    justify-content: flex-start;
-    padding-top: 0.7rem;
+    top: 50%;
+  }
+
+  .field-timeline-card {
+    width: 100%;
   }
 
   .field-timeline-item.is-left .field-timeline-card,
   .field-timeline-item.is-right .field-timeline-card {
-    grid-column: 2;
+    grid-column: 1;
+    justify-self: stretch;
     text-align: left;
   }
 
@@ -914,6 +974,35 @@
 
   .field-split-title {
     font-size: 1.5rem;
+  }
+
+  .field-timeline-list {
+    --timeline-axis-offset: 0.82rem;
+    --timeline-rail-width: 1.7rem;
+    --timeline-spine-size: 1.3rem;
+    --timeline-signal-size: 0.68rem;
+  }
+
+  .field-timeline-item {
+    padding-left: 2.2rem;
+  }
+
+  .field-timeline-card {
+    padding: 1rem 0.95rem;
+  }
+
+  .field-timeline-meta {
+    flex-wrap: wrap;
+  }
+
+  .field-timeline-title span {
+    display: block;
+    margin-top: 0.16rem;
+    margin-left: 0;
+  }
+
+  .field-tech-stack {
+    line-height: 1.75;
   }
 
   .field-about-copy,

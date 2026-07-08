@@ -22,19 +22,20 @@ const { experience } = Astro.props;
     <div class="field-section-label" data-field-reveal style="--field-delay: 210ms;">
       {experience.label}
     </div>
-    <div class="field-timeline-list">
-      <div class="field-timeline-line" aria-hidden="true"></div>
+    <div class="field-timeline-list" data-timeline>
+      <div class="field-timeline-rail" aria-hidden="true">
+        <div class="field-timeline-line"></div>
+        <div class="field-timeline-progress" data-timeline-progress></div>
+        <span class="field-timeline-signal" data-timeline-signal></span>
+      </div>
       {
         experience.items.map((item, index) => (
           <article
             class:list={['field-timeline-item', index % 2 === 0 ? 'is-left' : 'is-right']}
             data-field-reveal
+            data-timeline-item
             style={`--field-delay:${260 + index * 70}ms;`}
           >
-            <div class="field-timeline-ghost" aria-hidden="true" />
-            <div class="field-timeline-spine" aria-hidden="true">
-              <span class="field-node field-node-strong" />
-            </div>
             <div class:list={['field-timeline-card', item.emphasis && 'is-emphasis']}>
               <div class="field-timeline-meta">
                 <span class="field-timeline-period">{item.period}</span>
@@ -46,6 +47,9 @@ const { experience } = Astro.props;
               </h3>
               <p class="field-timeline-description">{item.description}</p>
               <p class="field-tech-stack">{item.techs}</p>
+            </div>
+            <div class="field-timeline-spine" aria-hidden="true">
+              <span class="field-node field-node-strong field-timeline-node" data-timeline-node />
             </div>
           </article>
         ))
