@@ -1,0 +1,46 @@
+---
+interface Props {
+  contact: {
+    label: string;
+    heading: string;
+    footer: string;
+    links: Array<{
+      label: string;
+      href: string;
+      accent?: boolean;
+    }>;
+  };
+}
+
+const { contact } = Astro.props;
+---
+
+<section
+  class="field-section field-contact"
+  id="contact"
+  data-field-reveal
+  style="--field-delay: 420ms;"
+>
+  <div class="field-container field-contact-inner">
+    <div class="field-contact-hub" aria-hidden="true">
+      <span class="field-contact-core"></span>
+    </div>
+    <p class="field-section-label">{contact.label}</p>
+    <h2 class="field-contact-title">{contact.heading}</h2>
+    <div class="field-contact-links">
+      {
+        contact.links.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            class:list={['field-contact-link', link.accent && 'is-accent']}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+    <p class="field-contact-footer">{contact.footer}</p>
+  </div>
+</section>

@@ -7,6 +7,7 @@
 // Core modules
 import path from 'node:path';
 import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import chalk from 'chalk';
 import prettier from 'prettier';
 import type { AstroIntegration } from 'astro';
@@ -115,7 +116,8 @@ export default function htmlBeautifier(options: Partial<FormatterOptions> = {}):
         try {
           console.log(chalk.blue.bold('\nFormatting HTML files...'));
 
-          const allFiles = getAllFiles(dir.pathname);
+          const outputDir = fileURLToPath(dir);
+          const allFiles = getAllFiles(outputDir);
 
           const htmlFiles = allFiles.filter((filePath) => path.extname(filePath) === '.html');
 

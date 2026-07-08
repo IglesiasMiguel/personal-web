@@ -1,0 +1,30 @@
+---
+interface Props {
+  archive: {
+    label: string;
+    items: Array<{
+      name: string;
+      tag: string;
+      link: string;
+    }>;
+  };
+}
+
+const { archive } = Astro.props;
+---
+
+<section class="field-section" data-field-reveal style="--field-delay: 170ms;">
+  <div class="field-container">
+    <div class="field-section-label">{archive.label}</div>
+    <div class="field-archive-grid">
+      {
+        archive.items.map((item) => (
+          <a href={item.link} target="_blank" rel="noreferrer" class="field-archive-card">
+            <span class="field-archive-name">{item.name}</span>
+            <span class="field-archive-tag">{item.tag}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

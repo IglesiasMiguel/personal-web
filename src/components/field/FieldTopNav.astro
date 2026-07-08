@@ -1,0 +1,33 @@
+---
+import type { HomeLang } from '@/content/home';
+
+interface Props {
+  brand: string;
+  nav: {
+    about: string;
+    projects: string;
+    experience: string;
+    contact: string;
+  };
+  lang: HomeLang;
+}
+
+const { brand, nav, lang } = Astro.props;
+const homeHref = lang === 'es' ? '/es/' : '/';
+---
+
+<nav class="field-topnav">
+  <div class="field-container field-topnav-inner">
+    <a href={homeHref} class="field-brand">{brand}</a>
+    <div class="field-topnav-links" aria-label="Section navigation">
+      <a href="#about">{nav.about}</a>
+      <a href="#projects">{nav.projects}</a>
+      <a href="#experience">{nav.experience}</a>
+      <a href="#contact">{nav.contact}</a>
+    </div>
+    <div class="field-lang-switch" aria-label="Language selector">
+      <a href="/" class:list={['field-lang-link', lang === 'en' && 'is-active']}>EN</a>
+      <a href="/es/" class:list={['field-lang-link', lang === 'es' && 'is-active']}>ES</a>
+    </div>
+  </div>
+</nav>

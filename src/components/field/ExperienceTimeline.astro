@@ -1,0 +1,55 @@
+---
+interface Props {
+  experience: {
+    label: string;
+    items: Array<{
+      period: string;
+      role: string;
+      company: string;
+      description: string;
+      techs: string;
+      tag?: string;
+      emphasis?: boolean;
+    }>;
+  };
+}
+
+const { experience } = Astro.props;
+---
+
+<section class="field-section" id="experience">
+  <div class="field-container">
+    <div class="field-section-label" data-field-reveal style="--field-delay: 210ms;">
+      {experience.label}
+    </div>
+    <div class="field-timeline-list">
+      <div class="field-timeline-line" aria-hidden="true"></div>
+      {
+        experience.items.map((item, index) => (
+          <article
+            class:list={['field-timeline-item', index % 2 === 0 ? 'is-left' : 'is-right']}
+            data-field-reveal
+            style={`--field-delay:${260 + index * 70}ms;`}
+          >
+            <div class="field-timeline-ghost" aria-hidden="true" />
+            <div class="field-timeline-spine" aria-hidden="true">
+              <span class="field-node field-node-strong" />
+            </div>
+            <div class:list={['field-timeline-card', item.emphasis && 'is-emphasis']}>
+              <div class="field-timeline-meta">
+                <span class="field-timeline-period">{item.period}</span>
+                {item.tag && <span class="field-timeline-tag">{item.tag}</span>}
+              </div>
+              <h3 class="field-timeline-title">
+                {item.role}
+                <span>{item.company}</span>
+              </h3>
+              <p class="field-timeline-description">{item.description}</p>
+              <p class="field-tech-stack">{item.techs}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

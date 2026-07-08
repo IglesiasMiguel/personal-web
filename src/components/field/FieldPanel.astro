@@ -1,0 +1,19 @@
+---
+interface Props {
+  label: string;
+  tone?: 'default' | 'accent';
+  className?: string;
+}
+
+const { label, tone = 'default', className = '' } = Astro.props;
+---
+
+<div class:list={['field-panel', tone === 'accent' && 'field-panel-accent', className]}>
+  <div class="field-panel-head">
+    <span class="field-node" aria-hidden="true"></span>
+    <span class="field-eyebrow">{label}</span>
+  </div>
+  <div class="field-panel-body">
+    <slot />
+  </div>
+</div>

@@ -1,0 +1,64 @@
+---
+import FieldPanel from '@/components/field/FieldPanel.astro';
+
+interface Props {
+  project: {
+    label: string;
+    title: string;
+    description: string;
+    techStack: string;
+    placeholder?: string;
+    imageSrc?: string;
+    imageAlt?: string;
+    link?: string;
+    linkLabel?: string;
+  };
+  reverse?: boolean;
+}
+
+const { project, reverse = false } = Astro.props;
+---
+
+<section
+  class:list={['field-section', 'field-split-section', reverse && 'is-reverse']}
+  data-field-reveal
+  style="--field-delay: 130ms;"
+>
+  <div class="field-container">
+    <div class:list={['field-split-grid', reverse && 'is-reverse']}>
+      <div class="field-split-copy">
+        <FieldPanel label={project.label}>
+          <div class="field-split-copy-inner">
+            <h2 class="field-split-title">{project.title}</h2>
+            <p class="field-split-description">{project.description}</p>
+            <p class="field-tech-stack">{project.techStack}</p>
+            {
+              project.link && project.linkLabel && (
+                <a class="field-inline-link" href={project.link} target="_blank" rel="noreferrer">
+                  {project.linkLabel}
+                </a>
+              )
+            }
+          </div>
+        </FieldPanel>
+      </div>
+      <div class="field-split-media">
+        {
+          project.imageSrc ? (
+            <div class="field-media-frame">
+              <img
+                src={project.imageSrc}
+                alt={project.imageAlt ?? project.title}
+                class="field-media-image"
+              />
+            </div>
+          ) : (
+            <div class="field-media-frame is-placeholder">
+              <p>{project.placeholder}</p>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
