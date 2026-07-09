@@ -1,0 +1,353 @@
+---
+import FieldPanel from '@/components/field/FieldPanel.astro';
+
+interface ProjectLink {
+  label: string;
+  href: string;
+}
+
+interface ProjectVersion {
+  key: string;
+  label: string;
+  href: string;
+  ctaLabel: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  placeholderEyebrow?: string;
+  placeholderTitle?: string;
+}
+
+interface ProjectItem {
+  priority: number;
+  label: string;
+  category: string;
+  title: string;
+  description: string;
+  techStack: string;
+  mediaMode: 'web' | 'mobile' | 'private-placeholder' | 'mixed';
+  imageSrc?: string;
+  imageAlt?: string;
+  imageSrcSecondary?: string;
+  imageAltSecondary?: string;
+  workflowSteps?: string[];
+  mediaEyebrow?: string;
+  mediaTitle?: string;
+  mediaPoints?: string[];
+  primaryLink?: ProjectLink;
+  secondaryLink?: ProjectLink;
+  disclaimer?: string;
+  statusTag?: string;
+  versions?: ProjectVersion[];
+}
+
+interface Props {
+  projects: {
+    label: string;
+    items: ProjectItem[];
+  };
+}
+
+const { projects } = Astro.props;
+const orderedProjects = [...projects.items].sort((a, b) => a.priority - b.priority);
+---
+
+<section class="field-section" id="projects">
+  <div class="field-container">
+    <div class="field-section-label" data-field-reveal style="--field-delay: 75ms;">
+      {projects.label}
+    </div>
+    <div class="field-project-list">
+      {
+        orderedProjects.map((project, index) => (
+          <article
+            class="field-project-entry"
+            data-field-reveal
+            style={`--field-delay:${110 + index * 45}ms;`}
+          >
+            <FieldPanel
+              label={project.label}
+              tone={project.priority <= 2 ? 'accent' : 'default'}
+              className="field-project-panel"
+            >
+              <div class="field-project-card">
+                <div class="field-project-copy">
+                  <div class="field-project-meta">
+                    <span class="field-project-category">{project.category}</span>
+                    {project.statusTag && (
+                      <span class="field-project-status">{project.statusTag}</span>
+                    )}
+                  </div>
+                  <h2 class="field-project-title">{project.title}</h2>
+                  <p class="field-project-description">{project.description}</p>
+                  {project.disclaimer && (
+                    <p class="field-project-disclaimer">{project.disclaimer}</p>
+                  )}
+                  <p class="field-tech-stack">{project.techStack}</p>
+                  {project.versions?.length ? (
+                    <div class="field-project-version-switch" data-project-versions>
+                      {project.versions.map((version, versionIndex) => (
+                        <button
+                          type="button"
+                          class:list={[
+                            'field-project-version-button',
+                            versionIndex === 0 && 'is-active',
+                          ]}
+                          data-version-button
+                          data-version-key={version.key}
+                          data-version-href={version.href}
+                          data-version-cta={version.ctaLabel}
+                        >
+                          {version.label}
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
+                  {!project.versions?.length && (project.primaryLink || project.secondaryLink) && (
+                    <div class="field-project-links">
+                      {project.primaryLink && (
+                        <a
+                          class="field-project-link is-primary"
+                          href={project.primaryLink.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {project.primaryLink.label}
+                        </a>
+                      )}
+                      {project.secondaryLink && (
+                        <a
+                          class="field-project-link"
+                          href={project.secondaryLink.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {project.secondaryLink.label}
+                        </a>
+                      )}
+                    </div>
+                  )}
+                  {project.versions?.length ? (
+                    <div class="field-project-links">
+                      <a
+                        class="field-project-link is-primary"
+                        href={project.versions[0].href}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-version-link
+                      >
+                        {project.versions[0].ctaLabel}
+                      </a>
+                      {project.secondaryLink && (
+                        <a
+                          class="field-project-link"
+                          href={project.secondaryLink.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {project.secondaryLink.label}
+                        </a>
+                      )}
+                    </div>
+                  ) : null}
+                </div>
+
+                <div class:list={['field-project-media', `is-${project.mediaMode}`]}>
+                  {project.versions?.length ? (
+                    <div class="field-project-version-preview">
+                      {project.versions.map((version, versionIndex) =>
+                        version.imageSrc ? (
+                          <div
+                            class="field-project-version-panel"
+                            data-version-panel
+                            data-version-key={version.key}
+                            hidden={versionIndex !== 0}
+                          >
+                            <div class="field-project-browser">
+                              <div class="field-project-browser-bar" aria-hidden="true">
+                                <span class="field-project-browser-dot" />
+                                <span class="field-project-browser-dot" />
+                                <span class="field-project-browser-dot" />
+                              </div>
+                              <div class="field-project-browser-viewport">
+                                <img
+                                  src={version.imageSrc}
+                                  alt={version.imageAlt ?? project.title}
+                                  class="field-project-browser-image"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          <div
+                            class="field-project-version-panel"
+                            data-version-panel
+                            data-version-key={version.key}
+                            hidden={versionIndex !== 0}
+                          >
+                            <div class="field-project-placeholder">
+                              <div class="field-project-placeholder-head">
+                                <span>
+                                  {version.placeholderEyebrow ??
+                                    project.mediaEyebrow ??
+                                    project.category}
+                                </span>
+                              </div>
+                              <div class="field-project-placeholder-body">
+                                <strong>
+                                  {version.placeholderTitle ?? project.mediaTitle ?? project.title}
+                                </strong>
+                                {project.mediaPoints?.length ? (
+                                  <div class="field-project-placeholder-points">
+                                    {project.mediaPoints.map((point) => (
+                                      <span>{point}</span>
+                                    ))}
+                                  </div>
+                                ) : null}
+                              </div>
+                            </div>
+                          </div>
+                        )
+                      )}
+                    </div>
+                  ) : project.workflowSteps?.length ? (
+                    <div class="field-project-workflow">
+                      {project.mediaEyebrow && (
+                        <span class="field-project-workflow-eyebrow">{project.mediaEyebrow}</span>
+                      )}
+                      <div class="field-workflow-steps">
+                        {project.workflowSteps.map((step, stepIndex) => (
+                          <div
+                            class="field-workflow-step"
+                            style={`--field-step-delay:${stepIndex * 0.3}s;`}
+                          >
+                            <span class="field-workflow-pulse" aria-hidden="true" />
+                            <span class="field-workflow-label">{step}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div class="field-workflow-track" aria-hidden="true">
+                        <span class="field-workflow-traveler" />
+                      </div>
+                      {project.mediaPoints?.length ? (
+                        <div class="field-project-mini-points">
+                          {project.mediaPoints.map((point) => (
+                            <span>{point}</span>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  ) : project.mediaMode === 'mobile' ? (
+                    <div class="field-project-mobile-stage">
+                      <div
+                        class:list={['field-phone-frame', !project.imageSrc && 'is-placeholder']}
+                      >
+                        <div
+                          class:list={['field-phone-screen', !project.imageSrc && 'is-placeholder']}
+                        >
+                          {project.imageSrc ? (
+                            <img
+                              src={project.imageSrc}
+                              alt={project.imageAlt ?? project.title}
+                              class="field-project-mobile-image"
+                            />
+                          ) : (
+                            <div class="field-project-phone-placeholder">
+                              <span>{project.mediaEyebrow ?? project.category}</span>
+                              <strong>{project.mediaTitle ?? project.title}</strong>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div class="field-project-mobile-notes">
+                        {project.mediaPoints?.map((point) => (
+                          <span>{point}</span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : project.imageSrc ? (
+                    <div class="field-project-browser">
+                      <div class="field-project-browser-bar" aria-hidden="true">
+                        <span class="field-project-browser-dot" />
+                        <span class="field-project-browser-dot" />
+                        <span class="field-project-browser-dot" />
+                      </div>
+                      <div class="field-project-browser-viewport">
+                        <img
+                          src={project.imageSrc}
+                          alt={project.imageAlt ?? project.title}
+                          class="field-project-browser-image"
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <div
+                      class:list={[
+                        'field-project-placeholder',
+                        project.mediaMode === 'private-placeholder' && 'is-private',
+                      ]}
+                    >
+                      <div class="field-project-placeholder-head">
+                        <span>{project.mediaEyebrow ?? project.category}</span>
+                      </div>
+                      <div class="field-project-placeholder-body">
+                        <strong>{project.mediaTitle ?? project.title}</strong>
+                        {project.mediaPoints?.length ? (
+                          <div class="field-project-placeholder-points">
+                            {project.mediaPoints.map((point) => (
+                              <span>{point}</span>
+                            ))}
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </FieldPanel>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const versionCards = document.querySelectorAll('[data-project-versions]');
+
+  versionCards.forEach((switcher) => {
+    const card = switcher.closest('.field-project-card');
+    if (!card) return;
+
+    const buttons = Array.from(switcher.querySelectorAll('[data-version-button]'));
+    const panels = Array.from(card.querySelectorAll('[data-version-panel]'));
+    const link = card.querySelector('[data-version-link]');
+
+    const setActiveVersion = (key) => {
+      buttons.forEach((button) => {
+        const isActive = button.dataset.versionKey === key;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.versionKey !== key;
+      });
+
+      const activeButton = buttons.find((button) => button.dataset.versionKey === key);
+      if (!activeButton || !link) return;
+
+      link.textContent = activeButton.dataset.versionCta ?? activeButton.textContent?.trim() ?? '';
+      if (activeButton.dataset.versionHref) {
+        link.setAttribute('href', activeButton.dataset.versionHref);
+      }
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        setActiveVersion(button.dataset.versionKey ?? '');
+      });
+    });
+
+    setActiveVersion(buttons[0]?.dataset.versionKey ?? '');
+  });
+</script>

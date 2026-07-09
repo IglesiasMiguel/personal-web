@@ -5,9 +5,7 @@ import FieldMotionController from '@/components/field/FieldMotionController';
 import FieldTopNav from '@/components/field/FieldTopNav.astro';
 import FieldHero from '@/components/field/FieldHero.astro';
 import FieldPanel from '@/components/field/FieldPanel.astro';
-import FeaturedProject from '@/components/field/FeaturedProject.astro';
-import SplitProjectRow from '@/components/field/SplitProjectRow.astro';
-import ArchiveStrip from '@/components/field/ArchiveStrip.astro';
+import ProjectsSection from '@/components/field/ProjectsSection.astro';
 import ExperienceTimeline from '@/components/field/ExperienceTimeline.astro';
 import FieldContact from '@/components/field/FieldContact.astro';
 
@@ -51,17 +49,7 @@ const { lang, content } = Astro.props;
           </FieldPanel>
         </div>
       </section>
-
-      <section class="field-section" data-field-reveal style="--field-delay: 75ms;">
-        <div class="field-container">
-          <div class="field-section-label">{content.projects.label}</div>
-        </div>
-      </section>
-
-      <FeaturedProject project={content.projects.featured} />
-      <SplitProjectRow project={content.projects.healthtech} />
-      <SplitProjectRow project={content.projects.pharmatech} reverse={true} />
-      <ArchiveStrip archive={content.projects.archive} />
+      <ProjectsSection projects={content.projects} />
       <ExperienceTimeline experience={content.experience} />
       <FieldContact contact={content.contact} />
     </main>

@@ -513,6 +513,378 @@
     letter-spacing: 0.04em;
   }
 
+  .field-project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .field-project-panel {
+    height: 100%;
+  }
+
+  .field-project-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
+    gap: 1.5rem;
+    align-items: stretch;
+    min-height: 24rem;
+  }
+
+  .field-project-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    min-width: 0;
+  }
+
+  .field-project-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+  }
+
+  .field-project-category,
+  .field-project-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.24rem 0.58rem;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .field-project-category {
+    border: 1px solid rgba(85, 216, 222, 0.22);
+    color: rgba(223, 236, 244, 0.86);
+    background: rgba(85, 216, 222, 0.12);
+  }
+
+  .field-project-status {
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    color: rgba(205, 219, 229, 0.7);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .field-project-title {
+    margin: 0;
+    color: var(--foreground);
+    font-size: clamp(1.65rem, 2.8vw, 2.1rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    overflow-wrap: anywhere;
+  }
+
+  .field-project-description,
+  .field-project-disclaimer {
+    margin: 0;
+    line-height: 1.78;
+    overflow-wrap: anywhere;
+  }
+
+  .field-project-description {
+    color: rgba(211, 223, 232, 0.86);
+  }
+
+  .field-project-disclaimer {
+    color: rgba(185, 201, 213, 0.68);
+    font-size: 0.92rem;
+  }
+
+  .field-project-version-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .field-project-version-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.42rem 0.78rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(208, 221, 231, 0.72);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+    cursor: pointer;
+  }
+
+  .field-project-version-button:hover {
+    transform: translateY(-1px);
+    border-color: rgba(85, 216, 222, 0.24);
+    color: rgba(232, 241, 247, 0.9);
+  }
+
+  .field-project-version-button.is-active {
+    border-color: rgba(85, 216, 222, 0.22);
+    background: rgba(85, 216, 222, 0.14);
+    color: var(--foreground);
+  }
+
+  .field-project-links {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 0.2rem;
+  }
+
+  .field-project-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.05rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(226, 237, 244, 0.82);
+    font-weight: 600;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  .field-project-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(85, 216, 222, 0.35);
+    color: var(--foreground);
+  }
+
+  .field-project-link.is-primary {
+    border-color: rgba(85, 216, 222, 0.16);
+    background: rgba(85, 216, 222, 0.14);
+    color: var(--foreground);
+  }
+
+  .field-project-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 22rem;
+    height: 100%;
+    padding: 1.15rem;
+    border-radius: 1.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background:
+      radial-gradient(circle at top center, rgba(85, 216, 222, 0.12), transparent 40%),
+      rgba(8, 13, 20, 0.92);
+    overflow: hidden;
+  }
+
+  .field-project-media.is-private-placeholder {
+    background:
+      radial-gradient(circle at top center, rgba(85, 216, 222, 0.08), transparent 44%),
+      repeating-linear-gradient(
+        135deg,
+        rgba(12, 19, 28, 0.98),
+        rgba(12, 19, 28, 0.98) 16px,
+        rgba(17, 25, 36, 0.98) 16px,
+        rgba(17, 25, 36, 0.98) 32px
+      );
+  }
+
+  .field-project-browser {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9.5;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 16, 24, 0.94);
+    overflow: hidden;
+  }
+
+  .field-project-version-preview,
+  .field-project-version-panel {
+    width: 100%;
+  }
+
+  .field-project-browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.8rem 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .field-project-browser-dot {
+    width: 0.56rem;
+    height: 0.56rem;
+    border-radius: 999px;
+    background: rgba(214, 228, 239, 0.36);
+  }
+
+  .field-project-browser-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top left;
+  }
+
+  .field-project-browser-viewport {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
+      rgba(9, 14, 22, 0.98);
+  }
+
+  .field-project-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    border: 1px dashed rgba(255, 255, 255, 0.14);
+    background: rgba(10, 16, 24, 0.82);
+  }
+
+  .field-project-placeholder.is-private {
+    border-color: rgba(85, 216, 222, 0.2);
+  }
+
+  .field-project-placeholder-head span,
+  .field-project-workflow-eyebrow,
+  .field-project-phone-placeholder span {
+    color: rgba(192, 208, 220, 0.66);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .field-project-placeholder-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .field-project-placeholder-body strong,
+  .field-project-phone-placeholder strong {
+    color: var(--foreground);
+    font-size: 1.08rem;
+    line-height: 1.4;
+  }
+
+  .field-project-placeholder-points,
+  .field-project-mini-points,
+  .field-project-mobile-notes {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .field-project-placeholder-points span,
+  .field-project-mini-points span,
+  .field-project-mobile-notes span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.65rem 0.8rem;
+    border-radius: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(213, 225, 234, 0.8);
+    line-height: 1.55;
+  }
+
+  .field-project-workflow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(7, 12, 19, 0.76);
+  }
+
+  .field-project-workflow .field-workflow-track {
+    margin-inline: 1rem;
+  }
+
+  .field-project-mobile-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .field-phone-frame {
+    width: min(100%, 12.6rem);
+    margin: 0 auto;
+    padding: 0.38rem;
+    aspect-ratio: 9 / 19.5;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(180deg, rgba(25, 36, 48, 0.96), rgba(8, 12, 18, 0.98));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 24px 40px rgba(0, 0, 0, 0.22);
+  }
+
+  .field-phone-screen {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.65rem;
+    overflow: hidden;
+    background: rgba(11, 17, 26, 0.98);
+  }
+
+  .field-phone-screen.is-placeholder {
+    display: grid;
+    place-items: center;
+    background:
+      linear-gradient(180deg, rgba(10, 17, 25, 0.98), rgba(13, 21, 30, 0.94)),
+      rgba(10, 17, 25, 0.98);
+  }
+
+  .field-project-phone-placeholder {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .field-project-mobile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top center;
+  }
+
   .field-split-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
@@ -803,8 +1175,59 @@
   }
 
   .field-contact-link {
-    color: rgba(226, 237, 244, 0.78);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    min-width: min(100%, 15rem);
+    padding: 0.95rem 1.1rem;
+    border-radius: 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(10, 17, 25, 0.42);
+    color: rgba(226, 237, 244, 0.84);
     font-weight: 500;
+    text-align: left;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  .field-contact-link-icon {
+    display: grid;
+    place-items: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    flex-shrink: 0;
+    border-radius: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .field-contact-link-icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .field-contact-link-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+    min-width: 0;
+  }
+
+  .field-contact-link-copy strong {
+    color: var(--foreground);
+    font-size: 0.98rem;
+    font-weight: 600;
+  }
+
+  .field-contact-link-copy span {
+    color: rgba(192, 208, 220, 0.66);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   html.field-motion-ready [data-field-reveal] {
@@ -882,9 +1305,23 @@
   }
 
   .field-workflow-steps,
+  .field-project-card,
+  .field-project-mobile-stage,
   .field-split-grid,
   .field-split-grid.is-reverse {
     grid-template-columns: 1fr;
+  }
+
+  .field-project-media {
+    min-height: 19rem;
+  }
+
+  .field-project-links {
+    margin-top: 0.4rem;
+  }
+
+  .field-phone-frame {
+    width: min(100%, 14rem);
   }
 
   .field-media-frame {
@@ -972,6 +1409,10 @@
     font-size: 1.7rem;
   }
 
+  .field-project-title {
+    font-size: 1.55rem;
+  }
+
   .field-split-title {
     font-size: 1.5rem;
   }
@@ -1006,6 +1447,8 @@
   }
 
   .field-about-copy,
+  .field-project-description,
+  .field-project-disclaimer,
   .field-featured-description,
   .field-split-description,
   .field-timeline-description {
@@ -1013,6 +1456,7 @@
   }
 
   .field-hero-actions,
+  .field-project-links,
   .field-contact-links {
     flex-direction: column;
   }
@@ -1022,6 +1466,7 @@
   }
 
   .field-button,
+  .field-project-link,
   .field-contact-link.is-accent {
     width: 100%;
   }
