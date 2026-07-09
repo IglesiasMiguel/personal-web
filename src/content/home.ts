@@ -94,7 +94,7 @@ export interface HomeContent {
 
 export const homeContent: Record<HomeLang, HomeContent> = {
   en: {
-    brand: 'M. IGLESIAS',
+    brand: 'Miguel Iglesias',
     nav: {
       about: 'About',
       projects: 'Projects',
@@ -291,8 +291,8 @@ export const homeContent: Record<HomeLang, HomeContent> = {
               label: 'Version 2',
               ctaLabel: 'View version 2',
               href: '/',
-              placeholderEyebrow: 'Current node system',
-              placeholderTitle: 'Version 2 preview coming soon',
+              imageSrc: '/assets/common/images/personal-web-v2.png',
+              imageAlt: 'Personal website version 2 preview',
             },
           ],
         },
@@ -364,7 +364,7 @@ export const homeContent: Record<HomeLang, HomeContent> = {
     },
   },
   es: {
-    brand: 'M. IGLESIAS',
+    brand: 'Miguel Iglesias',
     nav: {
       about: 'Sobre mí',
       projects: 'Proyectos',
@@ -569,8 +569,8 @@ export const homeContent: Record<HomeLang, HomeContent> = {
               label: 'Versión 2',
               ctaLabel: 'Ver versión 2',
               href: '/es/',
-              placeholderEyebrow: 'Sistema actual por nodos',
-              placeholderTitle: 'Preview de la versión 2 próximamente',
+              imageSrc: '/assets/common/images/personal-web-v2.png',
+              imageAlt: 'Vista previa del sitio personal versión 2',
             },
           ],
         },
