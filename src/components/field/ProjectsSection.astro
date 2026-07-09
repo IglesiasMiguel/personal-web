@@ -338,7 +338,13 @@ const orderedProjects = [...projects.items].sort((a, b) => a.priority - b.priori
 
       link.textContent = activeButton.dataset.versionCta ?? activeButton.textContent?.trim() ?? '';
       if (activeButton.dataset.versionHref) {
-        link.setAttribute('href', activeButton.dataset.versionHref);
+        const href = activeButton.dataset.versionHref;
+        link.setAttribute('href', href);
+        if (href.startsWith('#')) {
+          link.setAttribute('target', '_self');
+        } else {
+          link.setAttribute('target', '_blank');
+        }
       }
     };
 
