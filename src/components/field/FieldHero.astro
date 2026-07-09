@@ -1,0 +1,33 @@
+---
+interface Props {
+  content: {
+    eyebrow: string;
+    titleLead: string;
+    titleAccent: string;
+    identityTag: string;
+    primaryCopy: string;
+    secondaryCopy: string;
+    primaryCta: string;
+    secondaryCta: string;
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<section class="field-hero field-section" data-field-reveal style="--field-delay: 40ms;">
+  <div class="field-container field-hero-inner">
+    <p class="field-eyebrow field-hero-eyebrow">{content.eyebrow}</p>
+    <h1 class="field-hero-title">
+      {content.titleLead}
+      <span>{content.titleAccent}</span>
+    </h1>
+    <p class="field-hero-tag">{content.identityTag}</p>
+    <p class="field-hero-copy field-hero-copy-strong">{content.primaryCopy}</p>
+    <p class="field-hero-copy">{content.secondaryCopy}</p>
+    <div class="field-hero-actions">
+      <a href="#projects" class="field-button field-button-primary">{content.primaryCta}</a>
+      <a href="#contact" class="field-button field-button-secondary">{content.secondaryCta}</a>
+    </div>
+  </div>
+</section>

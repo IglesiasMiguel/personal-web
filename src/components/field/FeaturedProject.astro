@@ -1,0 +1,42 @@
+---
+import FieldPanel from '@/components/field/FieldPanel.astro';
+
+interface Props {
+  project: {
+    label: string;
+    title: string;
+    description: string;
+    workflowSteps: string[];
+    techStack: string;
+  };
+}
+
+const { project } = Astro.props;
+---
+
+<section class="field-section" data-field-reveal id="projects" style="--field-delay: 90ms;">
+  <div class="field-container">
+    <FieldPanel label={project.label} tone="accent">
+      <div class="field-featured">
+        <h2 class="field-featured-title">{project.title}</h2>
+        <p class="field-featured-description">{project.description}</p>
+        <div class="field-workflow">
+          <div class="field-workflow-steps">
+            {
+              project.workflowSteps.map((step, index) => (
+                <div class="field-workflow-step" style={`--field-step-delay:${index * 0.3}s;`}>
+                  <span class="field-workflow-pulse" aria-hidden="true" />
+                  <span class="field-workflow-label">{step}</span>
+                </div>
+              ))
+            }
+          </div>
+          <div class="field-workflow-track" aria-hidden="true">
+            <span class="field-workflow-traveler"></span>
+          </div>
+          <p class="field-tech-stack">{project.techStack}</p>
+        </div>
+      </div>
+    </FieldPanel>
+  </div>
+</section>
