@@ -141,11 +141,11 @@ export const homeContent: Record<HomeLang, HomeContent> = {
             'Push notification journeys',
           ],
           primaryLink: {
-            label: 'Open live preview',
-            href: 'https://medical-appointments-frontend-dev.onrender.com/',
+            label: 'Open official website',
+            href: 'https://citate.app',
           },
           disclaimer:
-            'Private project. Live preview available, but it may take a moment to wake up because it runs on Render free-tier infrastructure.',
+            'Private project. The official website is public, but the product internals remain private.',
         },
         {
           priority: 2,
@@ -210,8 +210,8 @@ export const homeContent: Record<HomeLang, HomeContent> = {
             'Secure product architecture',
           ],
           primaryLink: {
-            label: 'Open live demo',
-            href: 'https://cafe-lectura.vercel.app/',
+            label: 'Open official website',
+            href: 'https://cafelectura.com',
           },
           secondaryLink: {
             label: 'Open repository',
@@ -303,7 +303,7 @@ export const homeContent: Record<HomeLang, HomeContent> = {
       items: [
         {
           period: 'Ongoing',
-          role: 'Frontend Developer',
+          role: 'Lead Frontend Developer',
           company: 'Cítate (private product)',
           tag: 'Current',
           emphasis: true,
@@ -313,7 +313,7 @@ export const homeContent: Record<HomeLang, HomeContent> = {
         },
         {
           period: 'Ongoing',
-          role: 'Freelance AI Agent Developer',
+          role: 'AI Agent and Automation Developer',
           company: 'Independent',
           tag: 'Current',
           emphasis: true,
@@ -323,7 +323,7 @@ export const homeContent: Record<HomeLang, HomeContent> = {
         },
         {
           period: 'Aug 2025 - Jun 2026',
-          role: 'AI and Project Methodology Consultant',
+          role: 'AI Developer and Software Solutions Consultant',
           company: 'Universitas',
           tag: 'Recent',
           description:
@@ -332,18 +332,18 @@ export const homeContent: Record<HomeLang, HomeContent> = {
         },
         {
           period: 'Prior role',
-          role: 'Mobile Lead Developer',
+          role: 'Lead Mobile Developer',
           company: 'PharmaTech',
           description:
             'Led the mobile team building a React Native pharmacy e-commerce app with real-time order tracking and a delivery-focused product flow.',
           techs: 'React Native | Expo | TypeScript | WebSockets | Google Maps API',
         },
         {
-          period: 'Ongoing',
-          role: 'English Instructor',
-          company: 'Freelance',
+          period: 'Oct 2018 – Sep 2025',
+          role: 'English Tutor',
+          company: 'Independent',
           description:
-            'Teaching and tutoring continue to shape how I document, explain, and ship technical systems with clarity.',
+            'English teaching and tutoring shaped how I document, explain, and ship technical systems with clarity.',
           techs: 'Communication | Technical writing',
         },
       ],
@@ -411,11 +411,11 @@ export const homeContent: Record<HomeLang, HomeContent> = {
             'Recorridos con notificaciones push',
           ],
           primaryLink: {
-            label: 'Abrir demo pública',
-            href: 'https://medical-appointments-frontend-dev.onrender.com/',
+            label: 'Abrir sitio oficial',
+            href: 'https://citate.app',
           },
           disclaimer:
-            'Proyecto privado. La demo pública puede tardar un poco en levantar porque corre sobre infraestructura gratuita de Render.',
+            'Proyecto privado. El sitio web oficial es público, pero los detalles internos del producto permanecen bajo reserva.',
         },
         {
           priority: 2,
@@ -480,8 +480,8 @@ export const homeContent: Record<HomeLang, HomeContent> = {
             'Arquitectura segura de producto',
           ],
           primaryLink: {
-            label: 'Abrir demo pública',
-            href: 'https://cafe-lectura.vercel.app/',
+            label: 'Abrir sitio oficial',
+            href: 'https://cafelectura.com',
           },
           secondaryLink: {
             label: 'Abrir repositorio',
@@ -581,7 +581,7 @@ export const homeContent: Record<HomeLang, HomeContent> = {
       items: [
         {
           period: 'En curso',
-          role: 'Desarrollador frontend',
+          role: 'Desarrollador líder de frontend',
           company: 'Cítate (producto privado)',
           tag: 'Actual',
           emphasis: true,
@@ -591,7 +591,7 @@ export const homeContent: Record<HomeLang, HomeContent> = {
         },
         {
           period: 'En curso',
-          role: 'Desarrollador freelance de agentes de IA',
+          role: 'Desarrollador de agentes de IA y automatización',
           company: 'Independiente',
           tag: 'Actual',
           emphasis: true,
@@ -601,7 +601,7 @@ export const homeContent: Record<HomeLang, HomeContent> = {
         },
         {
           period: 'Ago 2025 - Jun 2026',
-          role: 'Consultor de IA y metodología de proyectos',
+          role: 'Desarrollador de IA y consultor de soluciones de software',
           company: 'Universitas',
           tag: 'Reciente',
           description:
@@ -610,18 +610,18 @@ export const homeContent: Record<HomeLang, HomeContent> = {
         },
         {
           period: 'Rol anterior',
-          role: 'Líder de desarrollo móvil',
+          role: 'Desarrollador líder de aplicaciones móviles',
           company: 'PharmaTech',
           description:
             'Lideré el equipo móvil construyendo una app de e-commerce para farmacias en React Native con seguimiento de pedidos en tiempo real y un flujo centrado en entregas.',
           techs: 'React Native | Expo | TypeScript | WebSockets | Google Maps API',
         },
         {
-          period: 'En curso',
-          role: 'Instructor de inglés',
-          company: 'Freelance',
+          period: 'Oct 2018 – Sep 2025',
+          role: 'Tutor de inglés',
+          company: 'Independiente',
           description:
-            'La enseñanza y las tutorías siguen moldeando cómo documento, explico y entrego sistemas técnicos con claridad.',
+            'La enseñanza y las tutorías contribuyeron a mi forma de documentar, explicar y entregar sistemas técnicos con claridad.',
           techs: 'Comunicación | Redacción técnica',
         },
       ],
