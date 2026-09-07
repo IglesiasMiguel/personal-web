@@ -144,8 +144,12 @@ export const homeContent: Record<HomeLang, HomeContent> = {
             label: 'Open official website',
             href: 'https://citate.app',
           },
+          secondaryLink: {
+            label: 'Explore expanded demo',
+            href: 'https://medical-appointments-frontend-dev.onrender.com/',
+          },
           disclaimer:
-            'Private project. The official website is public, but the product internals remain private.',
+            'Private project. The official website is the production version. The expanded demo runs on Render and may take a moment to wake up; it includes additional sample specialists to make the maps and provider search easier to explore.',
         },
         {
           priority: 2,
@@ -414,8 +418,12 @@ export const homeContent: Record<HomeLang, HomeContent> = {
             label: 'Abrir sitio oficial',
             href: 'https://citate.app',
           },
+          secondaryLink: {
+            label: 'Explorar demo ampliada',
+            href: 'https://medical-appointments-frontend-dev.onrender.com/',
+          },
           disclaimer:
-            'Proyecto privado. El sitio web oficial es público, pero los detalles internos del producto permanecen bajo reserva.',
+            'Proyecto privado. El sitio oficial corresponde a la versión de producción. La demo ampliada corre en Render y puede tardar un poco en despertar; incluye más especialistas de muestra para explorar mejor la búsqueda de especialistas y los mapas.',
         },
         {
           priority: 2,
